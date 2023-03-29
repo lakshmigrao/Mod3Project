@@ -1,3 +1,6 @@
+body{
+  max-width: 100%;
+}
 .App {
   text-align: center;
   display: flex;
@@ -45,7 +48,7 @@ form{
   width : 500px;
 }
 
-.menuCard{
+.recipeCard{
   border: 2px solid black;
   width : 300px;
   height : 300px;
@@ -61,11 +64,54 @@ form{
   overflow: hidden;
 }
 
-.menuCard img{
+.recipeCard img{
+  
   width:250px;
   height:250px;
 }
-.menuDetailsImg{
+.recipeDetails{
+  display: flex;
+  justify-content: center;
+}
+.recipeDetails img{
+  margin-top: 30px;
   width:300px;
   height:300px;
+  border-radius: 15%;
+  /* margin-left: 500px; */
+}
+.navbar{
+  /* background-color: black; */
+  /* color: white; */
+}
+.details{
+  display: inline;
+}
+.instructions{
+  border : 1px solid black;
+  margin: 20px;
+  border:20px;
+  padding:20px;
+}
+.mealnamevideo{
+  margin-top: 20px;
+  /* margin-left:535px; */
+}
+/* .form{
+
+  margin-top: 100px;;
+} */
+
+.card i{
+  font-size: 20px;
+  color:red;
+}
+button .back{
+  background-color: darkgray;
+  margin-left: 100px;
+  width : 50px;
+}
+
+.details ul>li{
+  list-style: none;
 }

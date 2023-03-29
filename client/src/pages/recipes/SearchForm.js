@@ -1,7 +1,7 @@
 import {  useState } from "react";
-import MenuDisplay from "./MenuDisplay";
+import RecipeDisplay from "./RecipeDisplay";
 
-function SearchForm({ menu,setMenu }) {
+function SearchForm({ recipes,setRecipes,user }) {
 
   let [input, setInput] = useState();
 
@@ -12,10 +12,10 @@ function SearchForm({ menu,setMenu }) {
   function handleSubmit(e) {
     e.preventDefault()
     if (input !== undefined)
-      getMenu(input)
+      getRecipes(input)
   }
 
-  async function getMenu(searchWord) {
+  async function getRecipes(searchWord) {
 
     //const yourAPIKey = process.env.REACT_APP_KEY;//"AIzaSyBvJwQ-tZE4rgWnjZ9kYgnDo0ilUqz03Mc"//
     //let url = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchWord}&app_id=76c81bdd&app_key=dce02cdfbdb29db0e7dbcde813032b03`
@@ -24,7 +24,7 @@ function SearchForm({ menu,setMenu }) {
     try {
       let response = await fetch(url); // returns a Promise
       let data = await response.json();
-      setMenu(data);
+      setRecipes(data);
       console.log(data)
     } catch (error) {
       console.log("something went wrong");
@@ -32,18 +32,18 @@ function SearchForm({ menu,setMenu }) {
 
   }
 
-  if (menu) {
+  if (recipes) {
     return (
       <div>
-        <form onSubmit={handleSubmit}>
+        <form style={{marginTop:"50px"}}onSubmit={handleSubmit}>
           <h1 className="search">Search for a recipe</h1>
           <input value={input} onChange={handleChange} />
           <button>Search</button>
-          <button onClick={() => { setBooks(""); setInput("") }}>Refresh</button>
+          <button onClick={() => { setRecipes(""); setInput("") }}>Refresh</button>
         </form>
 
         <div className="App">
-          < MenuDisplay menu={menu} setMenu={setMenu}/>
+          < RecipeDisplay recipes={recipes} setRecipes={setRecipes} user={user}/>
         </div>
       </div>
     );
