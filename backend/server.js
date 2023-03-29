@@ -11,3 +11,12 @@ const PORT = 8080
 const connectDB = require('./config/db')
 
 connectDB()
+
+
+app.use(express.json())
+app.use(cors())
+
+app.listen(PORT, () => {
+    console.log('Listening to the port: ' + PORT)
+})
+

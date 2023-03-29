@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+   flex-flow: row wrap;
+  justify-content: center;
 }
 
 .App-logo {
@@ -35,4 +38,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+form{
+  margin: 0 auto;
+  border: 0px solid black;
+  width : 500px;
+}
+
+.menuCard{
+  border: 2px solid black;
+  width : 300px;
+  height : 300px;
+  padding: 20px ;
+  padding-bottom: 20px;
+  margin: 20px;  
+  border-radius: 15%;
+  /* background-color: lightyellow; */
+  /* background-color: #FAF0CA; */
+  color:black;
+  /* background-color:  #FAF0CA A23B72; */
+  transition: .5s ease;
+  overflow: hidden;
+}
+
+.menuCard img{
+  width:250px;
+  height:250px;
+}
+.menuDetailsImg{
+  width:300px;
+  height:300px;
 }
