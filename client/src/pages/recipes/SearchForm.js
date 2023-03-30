@@ -4,7 +4,7 @@ import RecipeDisplay from "./RecipeDisplay";
 function SearchForm({ recipes,setRecipes,user }) {
 
   let [input, setInput] = useState();
-
+console.log(user.id)
   function handleChange(e) {
     setInput(e.target.value)
   }

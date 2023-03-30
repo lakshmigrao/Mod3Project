@@ -18,3 +18,12 @@ module.exports.add= async(req,res)=>{
     }
 
 }
+
+module.exports.show = async (req,res) =>{
+    try{
+        const user = await User.findOne({username : req.params.name}).populate('favoriterecipes')
+        res.status(200).json(user)
+    }catch(err){
+        res.status(404).json({ error: err.message })
+    }
+}

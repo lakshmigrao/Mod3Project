@@ -10,6 +10,7 @@ const recipeSchema = new Schema({
     },
     userId :{
         type:String,
+        required : true
     },
     recipeName:{
         type:String,

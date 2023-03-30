@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { addRecipeToFav } from "../../services/recipeService";
 import { useNavigate } from "react-router-dom";
 function RecipeDisplay({ recipes, myRecipes, setMyRecipes ,user}) {
-
+  let navigate = useNavigate()
   async function addToMyRecipes(item) {
 
     console.log("Recipe is added to ur list")
-    let navigate = useNavigate()
+    console.log(user.id)
     let recipe = {
       recipeId : item.idMeal,
-      userId : user._id,
+      userId : user.id,
       recipeName : item.strMeal,
       instructions : item.strInstructions,
       imagepath : item.strMealThumb,
@@ -37,8 +37,8 @@ function RecipeDisplay({ recipes, myRecipes, setMyRecipes ,user}) {
     return (
         
         recipes.meals.map((item,index) =>
-        <div className="recipeCard card">
-            <i class="fa-regular fa-heart" onClick={()=>{<i style={{color:"red"}}class="fa-solid fa-heart"></i>}}></i>
+        <div key={index} className="recipeCard card">
+            <i className ="fa-regular fa-heart" onClick={()=>{<i style={{color:"red"}}className="fa-solid fa-heart"></i>}}></i>
           <Link to={`/recipes/${item.idMeal}`}>  <h2>{item.strMeal}</h2> 
           
             <img src={item.strMealThumb} alt="" /></Link>

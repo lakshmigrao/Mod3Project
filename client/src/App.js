@@ -11,13 +11,14 @@ import MyRecipes from './pages/recipes/MyRecipes'
 import { userInfo } from './services/userService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap";
-
+import { useNavigate } from 'react-router-dom';
 function App() {
 
   let [recipes, setRecipes] = useState({})
   const [user,setUser] = useState({})
-  let [myRecipes,setMyRecipes]=useState([])
+  let [myRecipes,setMyRecipes]=useState({})
   const [isLoading, setIsLoading] = useState(true)
+  let navigate = useNavigate()
 
   useEffect(()=> {
     
@@ -32,13 +33,13 @@ function App() {
     async function getLoggedInUser(){
       const user = await userInfo()
       setUser(user)
+      
       setIsLoading(false)
     }
   }, [])
 
   let loggedIn = user.username
-
-  return (
+    return (
     <div >
       {/* className="App" */}
       <Nav user={loggedIn} setUser={setUser}/>
@@ -47,14 +48,14 @@ function App() {
         <Route path="/recipes/:idMeal" element={<RecipeDetails recipes={recipes} setRecipes={setRecipes} user={user} />} />
         {loggedIn ? 
         <>
-        <Route path="/myrecipes" element={<MyRecipes myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user}/>} /> 
-         {!isLoading && <Route path='*' element={<Navigate to='/' />} />}
+        <Route path="/myrecipes/:name" element={<MyRecipes myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>} /> 
+         {!isLoading && <Route path='*' element={<navigate to='/login' />} />}
         </> 
         :
         <>
         <Route path='/register' element={<Register setUser={setUser} />} /> 
         <Route path='/login' element={<Login setUser={setUser} />} />
-        {/* {!isLoading && <Route path='*' element={<Navigate to='/login' />} />} */}
+        {!isLoading && <Route path='*' element={<navigate to='/' />} />}
         </> 
       }
       </Routes>

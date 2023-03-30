@@ -4,10 +4,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar({ user, setUser }) {
-
+//console.log(user.id)
   const logout = () => {
     localStorage.removeItem("token")
-    setUser()
+    setUser({})
   }
   return (<>
     {user ?
@@ -21,7 +21,7 @@ function NavBar({ user, setUser }) {
               <Nav.Item>
                 <Nav.Link href="/">Home</Nav.Link></Nav.Item>
                 <Nav.Item>
-                 <Nav.Link href="/myrecipes">My Recipes</Nav.Link></Nav.Item>
+                 <Nav.Link href={`/myrecipes/${user}`}>My Recipes</Nav.Link></Nav.Item>
              
             {/*  <Nav.Item>
                  <Nav.Link href="/login">Login</Nav.Link></Nav.Item>

@@ -8,4 +8,6 @@ const { authorize, confirmUserAccess } = require('../middleware/authMiddleware')
 
 router.post('/', authorize, recipeController.add)
 
+router.get('/myrecipes/:name',authorize,recipeController.show)
+
 module.exports = router
