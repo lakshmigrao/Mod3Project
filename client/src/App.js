@@ -11,6 +11,7 @@ import MyRecipes from './pages/recipes/MyRecipes'
 import Profile from './pages/users/Profile'
 import EditRecipe from './pages/recipes/EditRecipe';
 import ViewRecipe from './pages/recipes/ViewRecipe';
+import EditProfile from './pages/users/EditProfile';
 import { userInfo } from './services/userService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap";
@@ -51,10 +52,12 @@ function App() {
         <Route path="/recipes/:idMeal" element={<RecipeDetails recipes={recipes} setRecipes={setRecipes} user={user} />} />
         {loggedIn ? 
         <>
-        <Route path="/profile" element={<Profile username={user.username} email={user.email} fname={user.fname} lname={user.lname} country={user.country}/>} /> 
-        <Route path="/myrecipes/:name" element={<MyRecipes myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>} />
-        <Route path="/myrecipes/:name/edit/:rid" element={<EditRecipe user={user} setUser={setUser}/>} /> 
-        <Route path="/myrecipes/:name/:rid" element={<ViewRecipe user={user} setUser={setUser}/>} /> 
+        <Route path="/profile" element={<Profile user={user} setUser={setUser}/>} />
+        <Route path="/profile/edit" element={<EditProfile user={user} setUser={setUser}/>} />  
+        <Route path="/myrecipes" element={<MyRecipes myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>} />
+        <Route path="/myrecipes/edit/:rid" element={<EditRecipe user={user} setUser={setUser}/>} /> 
+        <Route path="/myrecipes/:rid" element={<ViewRecipe user={user} setUser={setUser}/>} /> 
+        
          {!isLoading && <Route path='*' element={<navigate to='/login' />} />}
         </> 
         :

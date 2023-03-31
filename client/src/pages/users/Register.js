@@ -32,6 +32,7 @@ function Register({ setUser }) {
 
         const user = await userInfo()
         setUser(user)
+        alert(`${user.username} created.`)
 
         navigate('/')
     }

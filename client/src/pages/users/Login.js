@@ -55,7 +55,7 @@ function Login ({setUser}){
                     </div>
                  </div>
                  <br /><br /><br />
-                 <button style={{marginLeft : "100px"}} class="btn btn-primary" type="submit">Register</button>
+                 <button style={{marginLeft : "100px"}} class="btn btn-primary" type="submit">Login</button>
                  </form>
             {/* <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username : </label>

@@ -21,7 +21,7 @@ function NavBar({ user, setUser }) {
               <Nav.Item>
                 <Nav.Link href="/" className='tab'>Home</Nav.Link></Nav.Item>
                 <Nav.Item>
-                 <Nav.Link href={`/myrecipes/${user}`} className='tab'>My Recipes</Nav.Link></Nav.Item>
+                 <Nav.Link href={`/myrecipes`} className='tab'>My Recipes</Nav.Link></Nav.Item>
                  <Nav.Item >
                 <Nav.Link href="/profile" className='tab'>Profile</Nav.Link></Nav.Item>
               <Nav.Item className="ms-auto">

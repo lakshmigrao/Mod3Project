@@ -13,8 +13,8 @@ function EditRecipe({user,setUser}){
         const mesRef = useRef()
     
         useEffect(() => {
-            getARecipe(params.name,params.rid).then(data => setRecipe(data))
-        }, [params.rid, params.name])
+            getARecipe(params.rid).then(data => setRecipe(data))
+        }, [params.rid])
     
         async function handleSubmit(e) {
             e.preventDefault()
@@ -26,8 +26,8 @@ function EditRecipe({user,setUser}){
                 instructions: insRef.current.value
             }
            
-            await updateARecipe(params.name, params.rid, updatedRecipe)
-            navigate(`/myrecipes/${params.name}`)
+            await updateARecipe(params.rid, updatedRecipe)
+            navigate(`/myrecipes`)
         }
     
         return ( 
@@ -53,7 +53,7 @@ function EditRecipe({user,setUser}){
     
                         <button>Submit</button>
                     </form>
-                    <Link to={`/myrecipes/${params.name}`}>
+                    <Link to={`/myrecipes`}>
                         <button>Back</button>
                     </Link>
                 </div>

@@ -19,6 +19,33 @@ async function show(req, res) {
     }
 }
 
+async function updateProfile(req,res){
+
+    try {
+        await User.findByIdAndUpdate(req.id, req.body)
+        res.json({message : 'user updated successfully'})
+
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+
+
+}
+
+async function deleteProfile(req,res){
+
+    try {
+        await User.findByIdAndDelete(req.id)
+        res.json({message : 'user deleted successfully'})
+
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+
+
+}
 module.exports = {
-    show
+    show,
+    updateProfile,
+    deleteProfile
 }

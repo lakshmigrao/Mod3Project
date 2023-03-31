@@ -21,7 +21,7 @@ module.exports.add= async(req,res)=>{
 
 module.exports.show = async (req,res) =>{
     try{
-        const user = await User.findOne({username : req.params.name}).populate('favoriterecipes')
+        const user = await User.findById(req.id).populate('favoriterecipes')
         res.status(200).json(user)
     }catch(err){
         res.status(404).json({ error: err.message })
@@ -31,10 +31,10 @@ module.exports.show = async (req,res) =>{
 module.exports.delete = async (req,res) => {
 
     try{
-        await Recipe.findOneAndDelete({_id : req.params.recipeId})
-        await User.findOneAndUpdate({username : req.params.name},{
+        await Recipe.findOneAndDelete({_id : req.params.rid})
+        await User.findIdBy(req.id,{
             $pull:{
-                favoriterecipes : req.params.recipeId
+                favoriterecipes : req.params.rid
             }
         })
     }catch(err){

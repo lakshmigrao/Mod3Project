@@ -1,17 +1,30 @@
-function Profile({ username, email, fname, lname, country }) {
+import { Link, useNavigate } from "react-router-dom";
+import { deleteUser } from "../../services/userService";
+function Profile({ user,setUser }) {
+
+        const navigate = useNavigate()
+    async function handleDelete(){
+
+        await deleteUser()
+        localStorage.removeItem("token")
+        setUser({})
+        alert("Profile deleted.")
+        navigate('/login')
+    }
     return ( 
         <div className="profile">
-            <h1>Welcome to {username.toUpperCase()} 's Profile</h1>
+            <h1>Welcome to {user.username.toUpperCase()} 's Profile</h1>
             <br /><br />
-            <p>Username : {username}</p>
-            <p>Email : {email}</p>
-            <p>First Name : {fname}</p>
-            <p>Last Name : {lname}</p>
-            <p>Country of Residence : {country}</p>
+            <p>Username : {user.username}</p>
+            <p>Email : {user.email}</p>
+            <p>First Name : {user.fname}</p>
+            <p>Last Name : {user.lname}</p>
+            <p>Country of Residence : {user.country}</p>
 
             <br /><br />
-            <button>Edit Profile</button> 
-            <button style={{marginLeft : "100px"}}>Delete Profile</button>
+            <Link to={`/profile/edit`}>
+            <button>Edit Profile</button> </Link>
+            <button onClick={handleDelete} style={{marginLeft : "100px"}}>Delete Profile</button>
            
         </div>
         

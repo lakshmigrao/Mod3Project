@@ -4,4 +4,8 @@ const userCtrl = require('../controllers/userController')
 
 router.get('/', userCtrl.show)
 
+router.put('/profile/edit', userCtrl.updateProfile)
+
+router.delete('/profile',userCtrl.deleteProfile)
+
 module.exports = router

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { getARecipe, getRecipesFromUser, removeRecipeFromUserFav } from "../../services/recipeService"
+import { getRecipesFromUser, removeRecipeFromUserFav } from "../../services/recipeService"
 import { Link } from "react-router-dom"
 import ViewRecipe from "./ViewRecipe"
 
@@ -8,21 +8,21 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
     let updatedUser = {}
 
     let navigate = useNavigate()
-    let { name } = useParams()
-    console.log(name)
+    // let { name } = useParams()
+    // console.log(name)
     useEffect(() => {
-        async function loadData() {
-            const data = await getRecipesFromUser(name)
-             if(!data) navigate('/')
-            setUser(data)
-            console.log(user)
-        }
+        
      loadData()
     }, [user])
-   
+    async function loadData() {
+        const data = await getRecipesFromUser()
+         if(!data) navigate('/')
+        setUser(data)
+        console.log(user)
+    }
     async function handleDelete(recipe) {
         //console.log(recipe._id)
-        await removeRecipeFromUserFav(recipe._id,name)
+        await removeRecipeFromUserFav(recipe._id)
         let updatedUser = {...user}
         updatedUser.favoriterecipes= updatedUser.favoriterecipes.filter(c => c._id !== recipe._id)
        console.log(updatedUser.favoriterecipes)
@@ -37,10 +37,10 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
                 {user.favoriterecipes.map((item, index) =>
                     <div key={index} className="favorite recipeCard">
                          
-                        <Link to={`/myrecipes/${name}/edit/${item._id}`}>
+                        <Link to={`/myrecipes/edit/${item._id}`}>
                                     <button>Edit</button>
                         </Link>
-                        <Link to={`/myrecipes/${name}/${item._id}`}>
+                        <Link to={`/myrecipes/${item._id}`}>
                         <button> View </button>
                         </Link>
                         
@@ -68,7 +68,7 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
     } else {
         return (
             <div>
-                <h1>No Recipes in Favorites List</h1>
+                <h1 style={{marginLeft:"400px", marginTop:"200px"}}>No Recipes in Favorites List</h1>
             </div>)
     }
 }

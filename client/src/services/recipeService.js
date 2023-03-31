@@ -10,32 +10,32 @@ export async function addRecipeToFav(recipe) {
         console.log(err.message)
     }
 }
-export async function removeRecipeFromUserFav(recipeId, name) {
+export async function removeRecipeFromUserFav(recipeId) {
 
     const axios = customAxiosWithAuth()
     try {
-        await axios.delete(`/myrecipes/${name}/${recipeId}`)
+        await axios.delete(`/myrecipes/${recipeId}`)
         return response.data
     } catch (err) {
         console.log(err.message)
     }
 }
 
-export async function getRecipesFromUser(name) {
+export async function getRecipesFromUser() {
 
     const axios = customAxiosWithAuth()
     try {
-        const response = await axios.get(`/myrecipes/${name}`)
+        const response = await axios.get(`/myrecipes`)
         console.log(response.data)
         return response.data
     } catch (err) {
         console.log(err.message)
     }
 }
-export async function getARecipe(name,recipeId) {
+export async function getARecipe(recipeId) {
     const axios = customAxiosWithAuth()
     try {
-        const response = await axios.get(`/myrecipes/${name}/${recipeId}`)
+        const response = await axios.get(`/myrecipes/${recipeId}`)
         console.log(response.data)
         return response.data
     } catch (err) {
@@ -43,10 +43,10 @@ export async function getARecipe(name,recipeId) {
     }
 }
 
-export async function updateARecipe(name,recipeId,recipe) {
+export async function updateARecipe(recipeId,recipe) {
     const axios = customAxiosWithAuth()
     try {
-        await axios.put(`/myrecipes/${name}/edit/${recipeId}`,recipe)
+        await axios.put(`/myrecipes/edit/${recipeId}`,recipe)
     } catch (err) {
         console.log(err.message)
     }

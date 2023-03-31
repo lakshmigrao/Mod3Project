@@ -14,12 +14,14 @@ function goBack(){
     navigate(-1)//-1 to go back to previous page
 }  
 
-useEffect(async()=>{
-    const data = await getARecipe(params.name,params.rid)
-    setRecipe(data)
+useEffect(()=>{
+    callGetARecipe()
 },[])
 
-
+async function callGetARecipe(){
+    const data = await getARecipe(params.rid)
+    setRecipe(data)
+}
 
     return(
          <div className="details">

@@ -34,3 +34,23 @@ export async function userInfo(){
         localStorage.removeItem("token")
     }
 }
+
+export async function updateUserInfo(user){
+    const axios = customAxiosWithAuth()
+    try{
+        await axios.put(`/users/profile/edit`,user)
+    }catch(err){
+        localStorage.removeItem("token")
+    }
+
+}
+
+export async function deleteUser(){
+    const axios = customAxiosWithAuth()
+    try{
+        await axios.delete(`/users/profile`)
+    }catch(err){
+        localStorage.removeItem("token")
+    }
+
+}

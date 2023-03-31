@@ -8,11 +8,11 @@ const { authorize, confirmUserAccess } = require('../middleware/authMiddleware')
 
 router.post('/', authorize, recipeController.add)
 
-router.get('/myrecipes/:name',authorize,recipeController.show)
+router.get('/myrecipes',authorize,recipeController.show)
 
-router.put('/myrecipes/:name/edit/:rid',authorize,recipeController.updateRecipe)
+router.put('/myrecipes/edit/:rid',authorize,recipeController.updateRecipe)
 
-router.delete('/myrecipes/:name/:recipeId',authorize,recipeController.delete)
+router.delete('/myrecipes/:rid',authorize,recipeController.delete)
 
-router.get('/myrecipes/:name/:rid',authorize,recipeController.showRecipe)
+router.get('/myrecipes/:rid',authorize,recipeController.showRecipe)
 module.exports = router
