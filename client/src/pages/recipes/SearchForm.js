@@ -1,10 +1,10 @@
 import {  useState } from "react";
 import RecipeDisplay from "./RecipeDisplay";
 
-function SearchForm({ recipes,setRecipes,user }) {
+function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser}) {
 
   let [input, setInput] = useState();
-console.log(user.id)
+//console.log(user.id)
   function handleChange(e) {
     setInput(e.target.value)
   }
@@ -43,7 +43,7 @@ console.log(user.id)
         </form>
 
         <div className="App">
-          < RecipeDisplay recipes={recipes} setRecipes={setRecipes} user={user}/>
+          < RecipeDisplay recipes={recipes} myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>
         </div>
       </div>
     );

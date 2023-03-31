@@ -16,6 +16,12 @@ const recipeSchema = new Schema({
         type:String,
         required:true
     },
+    ingredients : {
+        type: Array
+    },
+    measures : {
+        type : Array
+    },
     instructions:{
         type:String
     },

@@ -19,16 +19,13 @@ function NavBar({ user, setUser }) {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto container-fluid">
               <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link></Nav.Item>
+                <Nav.Link href="/" className='tab'>Home</Nav.Link></Nav.Item>
                 <Nav.Item>
-                 <Nav.Link href={`/myrecipes/${user}`}>My Recipes</Nav.Link></Nav.Item>
-             
-            {/*  <Nav.Item>
-                 <Nav.Link href="/login">Login</Nav.Link></Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/register">Register</Nav.Link></Nav.Item> */}
+                 <Nav.Link href={`/myrecipes/${user}`} className='tab'>My Recipes</Nav.Link></Nav.Item>
+                 <Nav.Item >
+                <Nav.Link href="/profile" className='tab'>Profile</Nav.Link></Nav.Item>
               <Nav.Item className="ms-auto">
-                <Nav.Link href="/login" onClick={logout}>Logout</Nav.Link></Nav.Item>
+                <Nav.Link href="/login" className='tab' onClick={logout}>Logout</Nav.Link></Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -41,11 +38,11 @@ function NavBar({ user, setUser }) {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto container-fluid">
               <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link></Nav.Item>
+                <Nav.Link href="/" className='tab'>Home</Nav.Link></Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/login">Login</Nav.Link></Nav.Item>
+                <Nav.Link href="/login" className='tab'>Login</Nav.Link></Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/register">Register</Nav.Link></Nav.Item>
+                <Nav.Link href="/register" className='tab'>Register</Nav.Link></Nav.Item>
               {/* <Nav.Item className="ms-auto">
                 <Nav.Link href="/login" onClick={logout}>Logout</Nav.Link></Nav.Item> */}
             </Nav>

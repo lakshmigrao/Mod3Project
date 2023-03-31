@@ -2,53 +2,64 @@ import SearchForm from "./SearchForm"
 import { Link } from "react-router-dom";
 import { addRecipeToFav } from "../../services/recipeService";
 import { useNavigate } from "react-router-dom";
-function RecipeDisplay({ recipes, myRecipes, setMyRecipes ,user}) {
-  let navigate = useNavigate()
-  async function addToMyRecipes(item) {
+function RecipeDisplay({ recipes, myRecipes, setMyRecipes, user, setUser }) {
 
-    console.log("Recipe is added to ur list")
-    console.log(user.id)
-    let recipe = {
-      recipeId : item.idMeal,
-      userId : user.id,
-      recipeName : item.strMeal,
-      instructions : item.strInstructions,
-      imagepath : item.strMealThumb,
-      videopath : item.strYoutube
+  let navigate = useNavigate()
+  console.log(user)
+  async function addToMyRecipes(item) {
+    let ingredients = []
+    let measures = []
+    for (let i = 0; i < 20; i++) {
+      if (item[`strIngredient${i + 1}`] == '') {
+        break
+      }
+      ingredients[i] = item[`strIngredient${i + 1}`]
+      measures[i] = item[`strMeasure${i + 1}`]
     }
 
-    await addRecipeToFav(recipe)
-   navigate('/')
+    console.log(user.id)
+    let newrecipe = {
+      recipeId: item.idMeal,
+      userId: user.id,
+      recipeName: item.strMeal,
+      ingredients: ingredients,
+      measures: measures,
+      instructions: item.strInstructions,
+      imagepath: item.strMealThumb,
+      videopath: item.strYoutube
+    } 
     // if (myRecipes !== null) {
     //   let newArr = myRecipes;
-    //   newArr.push(item)
+    //   newArr.push(newrecipe)
     //   setMyRecipes(newArr)
     // }
     // else {
-    //   setMyRecipes([item])
+    //   setMyRecipes([newrecipe])
     // }
-    // alert(item.volumeInfo.title + " Book added to MyRecipes.")
-    // console.log("Book is added to ur list")
-    // console.log("Book is added to localstorage")
-    // localStorage.setItem('myRecipesls', JSON.stringify(myRecipes))
-  }  
+    let updatedUser = { ...user }
+    updatedUser.favoriterecipes.push(newrecipe)
+    setUser(updatedUser)
+    await addRecipeToFav(newrecipe)
+    navigate('/')
+   alert("Recipe is added to ur list")
+  }
 
   if (recipes.meals) {
     return (
-        
-        recipes.meals.map((item,index) =>
+
+      recipes.meals.map((item, index) =>
         <div key={index} className="recipeCard card">
-            <i className ="fa-regular fa-heart" onClick={()=>{<i style={{color:"red"}}className="fa-solid fa-heart"></i>}}></i>
-          <Link to={`/recipes/${item.idMeal}`}>  <h2>{item.strMeal}</h2> 
-          
+          <i className="fa-regular fa-heart" onClick={() => { <i style={{ color: "red" }} className="fa-solid fa-heart"></i> }}></i>
+          <Link to={`/recipes/${item.idMeal}`}>  <h2>{item.strMeal}</h2>
+
             <img src={item.strMealThumb} alt="" /></Link>
-            <button onClick={() => { addToMyRecipes(item) }}>Add to My Recipes</button>
-            
-       
-        {/* <h2>{item.recipe.label}</h2>
+          {user?.id ? <button onClick={() => { addToMyRecipes(item) }}>Add to My Recipes</button> : ''}
+
+
+          {/* <h2>{item.recipe.label}</h2>
         <img src={item.recipe.image} alt="" /> */}
 
-    </div>)
+        </div>)
     )
 
     //   recipe.meals.map((item, index) => {
@@ -70,19 +81,23 @@ function RecipeDisplay({ recipes, myRecipes, setMyRecipes ,user}) {
     //           </Link>
     //           {/* {item.volumeInfo.authors !== undefined ? <h5>Author(s) : {item.volumeInfo.authors.join(', ')}</h5> : null} */}
     //         </div>
-//           )
-//         } else {
-//           return null
-//         }
-//       }
-//       )
-//     )
+    //           )
+    //         } else {
+    //           return null
+    //         }
+    //       }
+    //       )
+    //     )
 
 
-//   }else{
-// return <h1>No results found.</h1>
-
+    //   }else{
+    // return <h1>No results found.</h1>
   }
+  // }else{
+  //   return(
+  //     <h1>Sorry, nothing matches your search.</h1>
+  //   )
+  // }
 }
 
 export default RecipeDisplay;

@@ -27,3 +27,34 @@ module.exports.show = async (req,res) =>{
         res.status(404).json({ error: err.message })
     }
 }
+
+module.exports.delete = async (req,res) => {
+
+    try{
+        await Recipe.findOneAndDelete({_id : req.params.recipeId})
+        await User.findOneAndUpdate({username : req.params.name},{
+            $pull:{
+                favoriterecipes : req.params.recipeId
+            }
+        })
+    }catch(err){
+        res.status(404).json({ error: err.message })
+    }
+}
+
+module.exports.updateRecipe = async (req,res) =>{
+    try{
+        await Recipe.findByIdAndUpdate(req.params.rid, req.body)
+        res.json({message : 'updated successfully'})
+    }catch(err){
+        res.status(404).json({ error: err.message })
+    }
+}
+module.exports.showRecipe = async (req,res) =>{
+    try{
+        const recipe = await Recipe.findById(req.params.rid)
+        res.status(200).json(recipe)
+    }catch(err){
+        res.status(404).json({ error: err.message })
+    }
+}

@@ -8,6 +8,8 @@ import Nav from './components/NavBar'
 import Register from './pages/users/Register'
 import Login from './pages/users/Login'
 import MyRecipes from './pages/recipes/MyRecipes'
+import Profile from './pages/users/Profile'
+import EditRecipe from './pages/recipes/EditRecipe';
 import { userInfo } from './services/userService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap";
@@ -38,24 +40,26 @@ function App() {
     }
   }, [])
 
-  let loggedIn = user.username
+  let loggedIn = user?.username
     return (
     <div >
       {/* className="App" */}
       <Nav user={loggedIn} setUser={setUser}/>
       <Routes>
-        <Route path="/" element={<SearchForm recipes={recipes} setRecipes={setRecipes} user={user} />} />
+        <Route path="/" element={<SearchForm recipes={recipes} setRecipes={setRecipes} myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser} />} />
         <Route path="/recipes/:idMeal" element={<RecipeDetails recipes={recipes} setRecipes={setRecipes} user={user} />} />
         {loggedIn ? 
         <>
-        <Route path="/myrecipes/:name" element={<MyRecipes myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>} /> 
+        <Route path="/profile" element={<Profile username={user.username} email={user.email} />} /> 
+        <Route path="/myrecipes/:name" element={<MyRecipes myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>} />
+        <Route path="/myrecipes/:name/edit/:rid" element={<EditRecipe user={user} setUser={setUser}/>} /> 
          {!isLoading && <Route path='*' element={<navigate to='/login' />} />}
         </> 
         :
         <>
         <Route path='/register' element={<Register setUser={setUser} />} /> 
         <Route path='/login' element={<Login setUser={setUser} />} />
-        {!isLoading && <Route path='*' element={<navigate to='/' />} />}
+        {!isLoading && <Route path='*' element={<navigate to='/login' />} />}
         </> 
       }
       </Routes>

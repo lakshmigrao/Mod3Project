@@ -49,19 +49,20 @@ form{
 }
 
 .recipeCard{
-  border: 2px solid black;
+  border: 1px solid darkblue;
   width : 300px;
   height : 300px;
   padding: 20px ;
   padding-bottom: 20px;
   margin: 20px;  
-  border-radius: 15%;
+  border-radius: 5%;
   /* background-color: lightyellow; */
   /* background-color: #FAF0CA; */
   color:black;
   /* background-color:  #FAF0CA A23B72; */
   transition: .5s ease;
   overflow: hidden;
+  /* text-overflow: hidden; */
 }
 
 .recipeCard img{
@@ -114,4 +115,37 @@ button .back{
 
 .details ul>li{
   list-style: none;
+}
+
+.favorite{
+  height :600px
+}
+button{
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 2px solid blue;
+  border-radius: 12px;
+  padding: 5px 15px;
+  border-radius: 5%;
+  /* width : 80px;
+  
+  margin:10px; */
+}
+button:hover{
+  background-color : darkgray;
+}
+button:active{
+  background-color: navy;
+  border: 2px solid blueviolet;
+}
+.tab:hover{
+  /* text-decoration: underline; */
+  -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+    /* box-shadow: 0 0 0 2px #000000; */
+    transition: .5s ease;
+    background-color: darkgray;
+    border-radius: 10px;
 }
