@@ -14,5 +14,5 @@ router.put('/myrecipes/:name/edit/:rid',authorize,recipeController.updateRecipe)
 
 router.delete('/myrecipes/:name/:recipeId',authorize,recipeController.delete)
 
-router.get('/myrecipes/:name/edit/:rid',authorize,recipeController.showRecipe)
+router.get('/myrecipes/:name/:rid',authorize,recipeController.showRecipe)
 module.exports = router

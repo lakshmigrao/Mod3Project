@@ -35,7 +35,7 @@ export async function getRecipesFromUser(name) {
 export async function getARecipe(name,recipeId) {
     const axios = customAxiosWithAuth()
     try {
-        const response = await axios.get(`/myrecipes/${name}/edit/${recipeId}`)
+        const response = await axios.get(`/myrecipes/${name}/${recipeId}`)
         console.log(response.data)
         return response.data
     } catch (err) {

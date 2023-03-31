@@ -8,6 +8,9 @@ async function show(req, res) {
             username: foundUser.username, 
             email: foundUser.email,
             id: req.id,
+            fname : foundUser.fname,
+            lname : foundUser.lname,
+            country : foundUser.country,
             favoriterecipes : foundUser.favoriterecipes
         })
 

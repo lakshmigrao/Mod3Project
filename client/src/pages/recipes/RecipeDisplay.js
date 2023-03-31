@@ -49,7 +49,7 @@ function RecipeDisplay({ recipes, myRecipes, setMyRecipes, user, setUser }) {
 
       recipes.meals.map((item, index) =>
         <div key={index} className="recipeCard card">
-          <i className="fa-regular fa-heart" onClick={() => { <i style={{ color: "red" }} className="fa-solid fa-heart"></i> }}></i>
+          {user?.id?<i className="fa-regular fa-heart" onClick={() => { <i style={{ color: "red" }} className="fa-solid fa-heart"></i> }}></i>:''}
           <Link to={`/recipes/${item.idMeal}`}>  <h2>{item.strMeal}</h2>
 
             <img src={item.strMealThumb} alt="" /></Link>

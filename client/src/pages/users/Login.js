@@ -40,8 +40,24 @@ function Login ({setUser}){
     }
     return(
         <div className="user-auth">
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+            <h1 style={{marginLeft : "400px",marginTop:"50px"}}>Login</h1>
+            <form style={{width:"300px"}} onSubmit={handleSubmit}>
+            <br /><br />
+                 <div className="row">
+                 <div class="col">
+                    <input type="text" class="form-control" placeholder="username" name='username' onChange={handleChange} value={form.username}/>
+                    </div>
+                 </div>
+                 <br /><br />
+                 <div className="row">
+                 <div class="col">
+                    <input type="password" class="form-control" placeholder="password" name='password' onChange={handleChange} value={form.password}/>
+                    </div>
+                 </div>
+                 <br /><br /><br />
+                 <button style={{marginLeft : "100px"}} class="btn btn-primary" type="submit">Register</button>
+                 </form>
+            {/* <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username : </label>
                 <br/>
                 <input 
@@ -63,7 +79,7 @@ function Login ({setUser}){
                 />
                 <br /><br />
                 <button>Submit</button>
-            </form>
+            </form> */}
         </div>
     )
 }

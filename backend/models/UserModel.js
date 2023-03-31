@@ -16,6 +16,15 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
+    fname : {
+        type:String
+    },
+    lname : {
+        type:String
+    },
+    country :{
+        type:String
+    },
     favoriterecipes: [{
         type: mongoose.Types.ObjectId,
         ref: 'Recipe'

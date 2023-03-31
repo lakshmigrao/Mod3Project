@@ -18,7 +18,7 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
             console.log(user)
         }
      loadData()
-    }, [updatedUser])
+    }, [user])
    
     async function handleDelete(recipe) {
         //console.log(recipe._id)
@@ -28,12 +28,6 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
        console.log(updatedUser.favoriterecipes)
         setUser(updatedUser)
        //navigate(`/myrecipes/${name}`)
-    }
-
-    async function handleView(recipe){
-
-        await getARecipe(name,recipe._id)
-        
     }
 
 
@@ -46,7 +40,10 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
                         <Link to={`/myrecipes/${name}/edit/${item._id}`}>
                                     <button>Edit</button>
                         </Link>
-                        <button onClick={() => { handleView(item) }}> View </button>
+                        <Link to={`/myrecipes/${name}/${item._id}`}>
+                        <button> View </button>
+                        </Link>
+                        
                         <button onClick={() => { handleDelete(item) }}> Remove </button>
                         
                         <h2>{item.recipeName}</h2>
