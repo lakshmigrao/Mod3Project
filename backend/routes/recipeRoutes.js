@@ -8,6 +8,8 @@ const { authorize, confirmUserAccess } = require('../middleware/authMiddleware')
 
 router.post('/', authorize, recipeController.add)
 
+router.delete('/:ridMeal',authorize,recipeController.deleteUsingIdmeal)
+
 router.get('/myrecipes',authorize,recipeController.show)
 
 router.put('/myrecipes/edit/:rid',authorize,recipeController.updateRecipe)

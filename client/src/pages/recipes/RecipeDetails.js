@@ -63,10 +63,10 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
      
         return (
             <div className="details">
-                    <div className="recipeDetails"><img  src={recipeDetails.meals[0].strMealThumb} /></div>
-                    <div className="recipeDetails"><h3 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h3></div>
-                    <div className="recipeDetails"><a className="mealnamevideo"href={recipeDetails.meals[0].strYoutube}>Watch Recipe Here</a></div>
-                    <ul><strong>Ingredients : <br/><br/></strong>
+                    <div className="recipeDetails one"><img  src={recipeDetails.meals[0].strMealThumb} /></div>
+                    <div className="recipeDetails one"><h2 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h2></div>
+                    <div className="recipeDetails one"><a className="mealnamevideo"href={recipeDetails.meals[0].strYoutube}><h3>Watch Recipe Here</h3></a></div>
+                    <ul className="ingredients"><strong>Ingredients : <br/><br/></strong>
                     
                         {ingredients.map((item,index)=>
                         <li>

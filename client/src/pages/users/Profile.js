@@ -7,6 +7,7 @@ function Profile({ user,setUser }) {
 
         await deleteUser()
         localStorage.removeItem("token")
+        localStorage.removeItem(user.username)
         setUser({})
         alert("Profile deleted.")
         navigate('/login')

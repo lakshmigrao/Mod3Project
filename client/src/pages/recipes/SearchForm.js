@@ -25,7 +25,7 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
       let response = await fetch(url); // returns a Promise
       let data = await response.json();
       setRecipes(data);
-      console.log(data)
+     // console.log(data)
     } catch (error) {
       console.log("something went wrong");
     }
@@ -36,10 +36,10 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
     return (
       <div>
         <form style={{marginTop:"50px"}}onSubmit={handleSubmit}>
-          <h1 className="search">Search for a recipe</h1>
-          <input value={input} onChange={handleChange} />
-          <button>Search</button>
-          <button onClick={() => { setRecipes(""); setInput("") }}>Refresh</button>
+          <h1 className="search">Welcome to my recipe world</h1>
+          <input size="50" value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" />
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          {/* <button style={{marginTop:"30px"}} onClick={() => { setRecipes(""); setInput("") }}>Reset</button> */}
         </form>
 
         <div className="App">
@@ -53,8 +53,8 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
 
         <form onSubmit={handleSubmit}>
           <h1 className="search">Search for a recipe</h1>
-          <input value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" style={{ width: "250px" }} />
-          <button>Search</button>
+          <input className="form-control" value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" />
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
     );

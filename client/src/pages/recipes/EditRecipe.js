@@ -51,7 +51,7 @@ function EditRecipe({user,setUser}){
                         
     
     
-                        <button>Submit</button>
+                        <button>Save</button>
                     </form>
                     <Link to={`/myrecipes`}>
                         <button>Back</button>

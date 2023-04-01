@@ -13,7 +13,7 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
     useEffect(() => {
         
      loadData()
-    }, [user])
+    }, [])
     async function loadData() {
         const data = await getRecipesFromUser()
          if(!data) navigate('/')
@@ -27,6 +27,11 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
         updatedUser.favoriterecipes= updatedUser.favoriterecipes.filter(c => c._id !== recipe._id)
        console.log(updatedUser.favoriterecipes)
         setUser(updatedUser)
+
+        let favoriteArray=JSON.parse(localStorage.getItem(user.username))
+        let index = favoriteArray.indexOf(recipe.recipeId)
+        favoriteArray.splice(index,1)
+        localStorage.setItem(user.username,JSON.stringify(favoriteArray))
        //navigate(`/myrecipes/${name}`)
     }
 
@@ -48,10 +53,10 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
                         
                         <h2>{item.recipeName}</h2>
                         {/* <h3>{item.recipeId}</h3> */}
-                        <a href={item.videopath}>Link to Video</a>
+                        <a className="video" href={item.videopath}><i class="fa-brands fa-youtube"></i></a>
                         <img src={item.imagepath} alt="" />
                         
-                        <p><strong>Ingredients</strong></p>
+                        <p><strong>Instructions</strong></p>
                         {/* {item.ingredients.map((list,index)=>
            
            <p>{index+1}.  {item.ingredients[index+1]} : {item.measures[index+1]}</p>

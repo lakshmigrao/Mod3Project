@@ -1,6 +1,11 @@
 body{
+  background: url('./images/freshvegbg.jpg') no-repeat fixed center;
+  background-size: 100% ;
+  /* background-origin: content-box; */
   max-width: 100%;
+
 }
+
 .App {
   text-align: center;
   display: flex;
@@ -45,11 +50,12 @@ body{
 form{
   margin: 0 auto;
   border: 0px solid black;
-  width : 500px;
+  width : 600px;
 }
 
 .recipeCard{
-  border: 1px solid darkblue;
+  border: 2px solid white;
+  background-color: white;
   width : 300px;
   height : 300px;
   padding: 20px ;
@@ -71,28 +77,30 @@ form{
   height:250px;
 }
 .recipeDetails{
+    /* width:300px; */
   display: flex;
   justify-content: center;
+  /* background-color: white; */
+
 }
 .recipeDetails img{
   margin-top: 30px;
   width:300px;
   height:300px;
-  border-radius: 15%;
+  
+  
   /* margin-left: 500px; */
-}
-.navbar{
-  /* background-color: black; */
-  /* color: white; */
 }
 .details{
   display: inline;
 }
 .instructions{
-  border : 1px solid black;
-  margin: 20px;
-  border:20px;
+  border : 1px solid white;
+  margin: 30px;
+  border:30px;
   padding:20px;
+  background-color: white;
+  border-radius: 10px;
 }
 .mealnamevideo{
   margin-top: 20px;
@@ -124,20 +132,23 @@ button{
   transition-duration: 0.4s;
   background-color: white;
   color: black;
-  border: 2px solid blue;
-  border-radius: 12px;
+  border: 2px solid darkslategrey;
+  margin:10px;
+  border-radius: 15px;
   padding: 5px 15px;
-  border-radius: 5%;
+ 
+  
   /* width : 80px;
   
   margin:10px; */
 }
 button:hover{
-  background-color : darkgray;
+  background-color : teal;
 }
 button:active{
   background-color: navy;
   border: 2px solid blueviolet;
+  border-radius: 15px;
 }
 .tab:hover{
   /* text-decoration: underline; */
@@ -155,3 +166,42 @@ button:active{
   margin-left:200px;
 
 }
+
+.search{
+  margin-top: 100px;
+  margin-bottom: 30px;
+  color : darkgray;
+}
+
+.register{
+  border: 2px solid darkgray ;
+  padding : 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 5%;
+  margin-top: 75px;
+  /* box-shadow: 50px +15px grey */
+}
+
+.ingredients{
+
+  border : 2px solid white;
+  width:275px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 30px;
+  border:30px;
+  padding:20px;
+
+}
+.one{
+ color: darkgoldenrod;
+}
+.one>a{
+  color: darkgoldenrod;
+}
+ .video{
+
+  color : red;
+  font-size: 20px;
+ }

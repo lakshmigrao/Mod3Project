@@ -58,3 +58,17 @@ module.exports.showRecipe = async (req,res) =>{
         res.status(404).json({ error: err.message })
     }
 }
+
+module.exports.deleteUsingIdmeal = async (req,res) => {
+
+    try{
+        await Recipe.findOneAndDelete({recipeId : req.params.ridMeal})
+        await User.findIdBy(req.id,{
+            $pull:{
+                favoriterecipes : req.params.ridMeal
+            }
+        })
+    }catch(err){
+        res.status(404).json({ error: err.message })
+    }
+}

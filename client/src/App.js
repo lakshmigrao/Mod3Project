@@ -20,7 +20,7 @@ function App() {
 
   let [recipes, setRecipes] = useState({})
   const [user,setUser] = useState({})
-  let [myRecipes,setMyRecipes]=useState({})
+  let [myRecipes,setMyRecipes]=useState([])
   const [isLoading, setIsLoading] = useState(true)
   let navigate = useNavigate()
 

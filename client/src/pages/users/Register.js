@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userInfo, userRegister } from "../../services/userService";
+import Form from 'react-bootstrap/Form'
 
 let emptyForm = {
     username: '',
@@ -39,8 +40,8 @@ function Register({ setUser }) {
 
     return (
         <div className="user-auth">
-            <h1 style={{marginLeft : "300px",marginBottom : "20px"}}>Register</h1>
-            <form style={{width:"500px"}} onSubmit={handleSubmit}>
+            <form style={{width:"375px"}} onSubmit={handleSubmit} className="register">
+            <h3 style={{marginLeft : "100px",marginBottom : "10px",color:"darkgray"}}>Register</h3>
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" placeholder="First name" name="fname" onChange={handleChange} value={form.fname}/>
@@ -74,8 +75,8 @@ function Register({ setUser }) {
                     <input type="password" class="form-control" placeholder="password" name='password' onChange={handleChange} value={form.password}/>
                     </div>
                  </div>
-                 <br /><br /><br />
-                 <button style={{marginLeft : "200px"}} class="btn btn-primary" type="submit">Register</button>
+                 <br /><br />
+                 <button style={{marginLeft : "100px",marginBottom:"20px"}} type="submit">Register</button>
             </form>
             {/* <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username : </label>

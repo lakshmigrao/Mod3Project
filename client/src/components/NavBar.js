@@ -11,17 +11,18 @@ function NavBar({ user, setUser }) {
   }
   return (<>
     {user ?
-      <Navbar className="d-flex navbar" bg="light" expand="lg" sticky='top' >
+      <Navbar  bg="dark" variant="dark" expand="lg" sticky='top' style={{fontSize : "30px"}} >
+        {/* className="d-flex navbar" */}
         <Container>
           <Navbar.Brand >Welcome {user}</Navbar.Brand>
-          <Navbar.Brand >Recipes</Navbar.Brand>
+          <Navbar.Brand >Recipe World!!!</Navbar.Brand>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto container-fluid">
+            <Nav justify variant="pills" className="me-auto container-fluid">
               <Nav.Item>
                 <Nav.Link href="/" className='tab'>Home</Nav.Link></Nav.Item>
                 <Nav.Item>
-                 <Nav.Link href={`/myrecipes`} className='tab'>My Recipes</Nav.Link></Nav.Item>
+                 <Nav.Link href="/myrecipes" className='tab'>My Recipes</Nav.Link></Nav.Item>
                  <Nav.Item >
                 <Nav.Link href="/profile" className='tab'>Profile</Nav.Link></Nav.Item>
               <Nav.Item className="ms-auto">
@@ -31,12 +32,12 @@ function NavBar({ user, setUser }) {
         </Container>
       </Navbar>
       :
-      <Navbar className="d-flex navbar" bg="light" expand="lg" sticky='top' >
+      <Navbar  bg="dark" variant="dark" expand="lg" sticky='top' style={{fontSize : "25px"}} >
         <Container>
-          <Navbar.Brand href="#home">Recipes</Navbar.Brand>
+          <Navbar.Brand href="#home">Recipe World!!!</Navbar.Brand>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto container-fluid">
+            <Nav justify variant="pills" className="me-auto container-fluid">
               <Nav.Item>
                 <Nav.Link href="/" className='tab'>Home</Nav.Link></Nav.Item>
               <Nav.Item>
