@@ -1,5 +1,5 @@
 import { useState,useEffect,useRef} from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { updateUserInfo, userInfo } from "../../services/userService"
 
 
@@ -83,7 +83,8 @@ function EditProfile({user,setUser}){
                     </div>
                  </div> */}
                  <br /><br /><br />
-                 <button style={{marginLeft : "200px"}} class="btn btn-primary" type="submit">Edit</button>
+                 <button style={{marginLeft : "200px"}} type="submit">Save</button>
+                 <Link to="/profile"><button>Back</button></Link>
             </form>
             </div>)
 

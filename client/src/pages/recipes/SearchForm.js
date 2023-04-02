@@ -38,7 +38,7 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
         <form style={{marginTop:"50px"}}onSubmit={handleSubmit}>
           <h1 className="search">Welcome to my recipe world</h1>
           <input size="50" value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" />
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button><i className="fa-solid fa-magnifying-glass"></i></button>
           {/* <button style={{marginTop:"30px"}} onClick={() => { setRecipes(""); setInput("") }}>Reset</button> */}
         </form>
 

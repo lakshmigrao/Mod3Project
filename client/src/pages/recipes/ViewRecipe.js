@@ -27,10 +27,12 @@ async function callGetARecipe(){
          <div className="details">
             <div className="recipeDetails"><img  src={recipe.imagepath} /></div>
             <div className="recipeDetails"><h3 className="mealnamevideo">{recipe.recipeName}</h3></div>
-            <div className="recipeDetails"><a className="mealnamevideo"href={recipe.videopath}>Watch Recipe Here</a></div>
-            <p className="instructions"><strong>Ingredients : </strong>{recipe.ingredients} <br/>
-                <strong>Measures    : </strong>{recipe.measures}</p>
-            
+            <div className="recipeDetails"><a className="mealnamevideo video"href={recipe.videopath}><i class="fa-brands fa-youtube"></i></a></div>
+            <div className="ingredients"><strong>Ingredients   </strong>-----<strong>Measures    </strong>
+            {recipe?.ingredients?.map((item,index )=>
+            <p>{index+1}. {recipe.ingredients[index]}-----{recipe.measures[index]}</p>
+            )}
+            </div>
             {/* {recipe.ingredients?.map((list,index)=>
            
            <p>{index+1}.  {recipe.ingredients[index+1]} : {recipe.measures[index+1]}</p>

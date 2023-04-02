@@ -37,7 +37,8 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
 
 
     if (user.favoriterecipes?.length) {
-        return (
+        return (<>
+            <i clasName="fa-regular fa-plus-large login"></i>
             <div className="App">
                 {user.favoriterecipes.map((item, index) =>
                     <div key={index} className="favorite recipeCard">
@@ -68,7 +69,7 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
                         {/* <h2>{item.recipe.label}</h2>
         <img src={item.recipe.image} alt="" /> */}
 
-                    </div>)}</div>
+                    </div>)}</div></>
         )
     } else {
         return (

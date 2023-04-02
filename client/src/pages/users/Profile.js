@@ -1,8 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { deleteUser } from "../../services/userService";
+import Form from 'react-bootstrap/Form'
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Col from "react-bootstrap/Col";
+import Row from 'react-bootstrap/Row';
+
 function Profile({ user,setUser }) {
 
-        const navigate = useNavigate()
+    const navigate = useNavigate()
     async function handleDelete(){
 
         await deleteUser()
@@ -16,15 +21,39 @@ function Profile({ user,setUser }) {
         <div className="profile">
             <h1>Welcome to {user.username.toUpperCase()} 's Profile</h1>
             <br /><br />
-            <p>Username : {user.username}</p>
-            <p>Email : {user.email}</p>
-            <p>First Name : {user.fname}</p>
-            <p>Last Name : {user.lname}</p>
-            <p>Country of Residence : {user.country}</p>
-
+            <Form>
+                <Row>
+                    <Col>
+            <Form.Group className="mb-3" >
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="fname" placeholder={user.fname} disabled/>
+            </Form.Group>
+            </Col>
+            <Col>
+            <Form.Group className="mb-3" >
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control type="lname" placeholder={user.lname} disabled/>
+            </Form.Group>
+            </Col>
+            </Row>
+            <Form.Group className="mb-3" >
+                <Form.Label>Country of residence</Form.Label>
+                <Form.Control type="country" placeholder={user.country} disabled/>
+            </Form.Group>
+            <Form.Group className="mb-3" >
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="username" placeholder={user.username} disabled/>
+            </Form.Group>
+            <Form.Group className="mb-3" >
+                <Form.Label>E-mail</Form.Label>
+                <Form.Control type="email" placeholder={user.email} disabled/>
+            </Form.Group>
+     
+            </Form>
+              
             <br /><br />
             <Link to={`/profile/edit`}>
-            <button>Edit Profile</button> </Link>
+            <button style={{marginLeft : "600px"}}>Edit Profile</button> </Link>
             <button onClick={handleDelete} style={{marginLeft : "100px"}}>Delete Profile</button>
            
         </div>

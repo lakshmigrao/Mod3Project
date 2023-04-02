@@ -174,7 +174,7 @@ button:active{
 }
 
 .register{
-  border: 2px solid darkgray ;
+  /* border: 2px solid darkgray ; */
   padding : 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -195,13 +195,30 @@ button:active{
 
 }
 .one{
- color: darkgoldenrod;
+ color: white;
 }
 .one>a{
-  color: darkgoldenrod;
+  color: white;
 }
  .video{
 
   color : red;
-  font-size: 20px;
+  font-size: 30px;
+ }
+ .login{
+  color:white;
+ }
+ .login:hover{
+  color:blue;
+ }
+ .loginsm{
+  font-size: 25px;
+  color:white;
+  margin: 20px ;
+  margin-left: 0;
+  margin-top: 0;
+ }
+ .loginsm:hover{
+color:blue;
+
  }

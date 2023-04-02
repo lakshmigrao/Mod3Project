@@ -65,7 +65,7 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
             <div className="details">
                     <div className="recipeDetails one"><img  src={recipeDetails.meals[0].strMealThumb} /></div>
                     <div className="recipeDetails one"><h2 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h2></div>
-                    <div className="recipeDetails one"><a className="mealnamevideo"href={recipeDetails.meals[0].strYoutube}><h3>Watch Recipe Here</h3></a></div>
+                    <div className="recipeDetails"><a className="mealnamevideo video"href={recipeDetails.meals[0].strYoutube}><i class="fa-brands fa-youtube"></i></a></div>
                     <ul className="ingredients"><strong>Ingredients : <br/><br/></strong>
                     
                         {ingredients.map((item,index)=>

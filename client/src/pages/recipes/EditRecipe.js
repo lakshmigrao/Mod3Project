@@ -38,7 +38,7 @@ function EditRecipe({user,setUser}){
     
                         <label htmlFor="rname">Recipe Name :</label><br />
                         <textarea ref={nameRef} id="rname" defaultValue={recipe.recipeName} /><br /><br />
-
+                
                         <label htmlFor="ing">Ingredients :</label><br />
                         <textarea ref={ingRef} id="ing" cols="30" rows="5" defaultValue={recipe.ingredients} /><br /><br />
 

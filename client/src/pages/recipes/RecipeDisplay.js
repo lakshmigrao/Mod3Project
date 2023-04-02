@@ -70,7 +70,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
       setUser(updatedUser)
       await addRecipeToFav(newrecipe)
       navigate('/')
-      alert("Recipe is added to ur list")
+      alert("Recipe is added to your list")
   }
  
   async function handleDelete(recipe) {
@@ -86,6 +86,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
     favoriteArray.splice(index,1)
     console.log(favoriteArray+"after deletion")
     localStorage.setItem(user.username,JSON.stringify(favoriteArray))
+    alert("Recipe is removed from your list")
    //navigate(`/myrecipes/${name}`)
 }
   if (recipes.meals) {
