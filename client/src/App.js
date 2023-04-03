@@ -9,6 +9,7 @@ import Register from './pages/users/Register'
 import Login from './pages/users/Login'
 import MyRecipes from './pages/recipes/MyRecipes'
 import Profile from './pages/users/Profile'
+import NewRecipe from './pages/recipes/NewRecipe';
 import EditRecipe from './pages/recipes/EditRecipe';
 import ViewRecipe from './pages/recipes/ViewRecipe';
 import EditProfile from './pages/users/EditProfile';
@@ -55,6 +56,7 @@ function App() {
         <Route path="/profile" element={<Profile user={user} setUser={setUser}/>} />
         <Route path="/profile/edit" element={<EditProfile user={user} setUser={setUser}/>} />  
         <Route path="/myrecipes" element={<MyRecipes myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>} />
+        <Route path="/myrecipes/newrecipe" element={<NewRecipe user={user} setUser={setUser}/>} /> 
         <Route path="/myrecipes/edit/:rid" element={<EditRecipe user={user} setUser={setUser}/>} /> 
         <Route path="/myrecipes/:rid" element={<ViewRecipe user={user} setUser={setUser}/>} /> 
         

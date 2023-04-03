@@ -27,35 +27,37 @@ function EditRecipe({user,setUser}){
             }
            
             await updateARecipe(params.rid, updatedRecipe)
+            alert("Changes are saved.")
             navigate(`/myrecipes`)
         }
     
         return ( 
             <div>
                 <h1>Edit Recipe </h1>
-                <div className='buttons' style={{ flexDirection: 'column' }}>
+                <div className='buttons details' style={{ flexDirection: 'column' }}>
                     <form onSubmit={handleSubmit}>
     
+                        <img style={{width:"300px",height:"300px"}} src={recipe.imagepath} alt="" />
+                        <br />
                         <label htmlFor="rname">Recipe Name :</label><br />
                         <textarea ref={nameRef} id="rname" defaultValue={recipe.recipeName} /><br /><br />
                 
                         <label htmlFor="ing">Ingredients :</label><br />
-                        <textarea ref={ingRef} id="ing" cols="30" rows="5" defaultValue={recipe.ingredients} /><br /><br />
+                        <textarea ref={ingRef} id="ing" cols="60" rows="3" defaultValue={recipe.ingredients} /><br /><br />
 
                         <label htmlFor="ing">Measures :</label><br />
-                        <textarea ref={mesRef} id="ing" cols="30" rows="5" defaultValue={recipe.measures} /><br /><br />
+                        <textarea ref={mesRef} id="ing" cols="60" rows="3" defaultValue={recipe.measures} /><br /><br />
                         
                         <label htmlFor="ins">Instructions :</label><br />
-                        <textarea ref={insRef} id="ins" cols="30" rows="5" defaultValue={recipe.instructions} /><br /><br />
+                        <textarea ref={insRef} id="ins" cols="60" rows="8" defaultValue={recipe.instructions} /><br /><br />
     
-                        
-    
-    
-                        <button>Save</button>
+                        <button style={{marginLeft:"150px"}}>Save</button>
+                        <Link to={`/myrecipes`}>
+                            <button style={{marginLeft:"100px"}}>Back</button>
+                        </Link>
                     </form>
-                    <Link to={`/myrecipes`}>
-                        <button>Back</button>
-                    </Link>
+                    
+                    
                 </div>
             </div>
         );

@@ -79,27 +79,37 @@ form{
 .recipeDetails{
     /* width:300px; */
   display: flex;
-  justify-content: center;
+  justify-content: center; 
+  flex-wrap: nowrap;
   /* background-color: white; */
 
 }
 .recipeDetails img{
   margin-top: 30px;
-  width:300px;
+  width:400px;
   height:300px;
+  border-radius: 20px;
   
   
   /* margin-left: 500px; */
 }
 .details{
-  display: inline;
+  /* display: inline; */
+  
+  background-color: white;
+  margin: 100px auto;
+  /* border:100px 150px 150px 150px; */
+  padding:50px 100px 100px 100px;
+  width:1200px;
+  border-radius: 20px;
 }
+
 .instructions{
   border : 1px solid white;
   margin: 30px;
   border:30px;
   padding:20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 10px;
 }
 .mealnamevideo{
@@ -162,9 +172,15 @@ button:active{
 }
 
 .profile{
-
-  margin-left:200px;
-
+  border: 0px solid darkgray ;
+  padding : 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 5%;
+  width:700px;
+  display: block;
+  text-align: center;
+  margin:50px auto;
 }
 
 .search{
@@ -174,20 +190,35 @@ button:active{
 }
 
 .register{
-  /* border: 2px solid darkgray ; */
+  border: 2px solid darkgray ;
   padding : 20px;
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 5%;
-  margin-top: 75px;
+  width:500px;
+  display: block;
+  text-align: center;
+  margin:50px auto;
+  /* box-shadow: 50px +15px grey */
+}
+.loginpage{
+  border: 2px solid darkgray ;
+  padding : 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 5%;
+  width:500px;
+  display: block;
+  text-align: center;
+  margin:50px auto;
   /* box-shadow: 50px +15px grey */
 }
 
 .ingredients{
 
   border : 2px solid white;
-  width:275px;
-  background-color: white;
+  /* width:275px; */
+  /* background-color: white; */
   border-radius: 10px;
   margin: 30px;
   border:30px;
@@ -222,3 +253,10 @@ button:active{
 color:blue;
 
  }
+
+ .control {
+ height: 20px;
+}
+.delete:hover{
+  color:gray;
+}

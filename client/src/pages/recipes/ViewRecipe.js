@@ -1,6 +1,7 @@
 import { useEffect, useState} from "react"
 import { getARecipe } from "../../services/recipeService"
 import { useParams, useNavigate} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 function ViewRecipe({user,setUser}){
@@ -25,10 +26,11 @@ async function callGetARecipe(){
 
     return(
          <div className="details">
-            <div className="recipeDetails"><img  src={recipe.imagepath} /></div>
-            <div className="recipeDetails"><h3 className="mealnamevideo">{recipe.recipeName}</h3></div>
-            <div className="recipeDetails"><a className="mealnamevideo video"href={recipe.videopath}><i class="fa-brands fa-youtube"></i></a></div>
+            <div className="recipeDetails"><img src={recipe.imagepath} /></div>
+            <div className="recipeDetails"><h3>{recipe.recipeName}</h3></div>
+            <div className="recipeDetails"><a className=" video"href={recipe.videopath}><i class="fa-brands fa-youtube"></i></a></div>
             <div className="ingredients"><strong>Ingredients   </strong>-----<strong>Measures    </strong>
+            <br />
             {recipe?.ingredients?.map((item,index )=>
             <p>{index+1}. {recipe.ingredients[index]}-----{recipe.measures[index]}</p>
             )}
@@ -45,8 +47,11 @@ async function callGetARecipe(){
                 )} */}
           
             <p className="instructions"><strong>Instructions : <br /><br /></strong>{recipe.instructions}</p>
-            <br/><br/>
-            <div className="recipeDetails back"><button onClick={goBack}>Back</button></div>
+            <br/>
+            <Link to={`/myrecipes/edit/${recipe._id}`}>
+                 <button style={{marginLeft:"375px"}}>Edit</button>
+            </Link>
+            <button  style={{marginLeft:"100px"}}onClick={goBack}>Back</button>
         
         </div>
     )

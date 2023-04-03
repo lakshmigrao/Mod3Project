@@ -52,10 +52,11 @@ function Profile({ user,setUser }) {
             </Form>
               
             <br /><br />
+            <div style={{display:"flex", justifyContent:"center"}}>
             <Link to={`/profile/edit`}>
-            <button style={{marginLeft : "600px"}}>Edit Profile</button> </Link>
+            <button >Edit Profile</button> </Link>
             <button onClick={handleDelete} style={{marginLeft : "100px"}}>Delete Profile</button>
-           
+           </div>
         </div>
         
      );

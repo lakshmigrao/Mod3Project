@@ -70,7 +70,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
       setUser(updatedUser)
       await addRecipeToFav(newrecipe)
       navigate('/')
-      alert("Recipe is added to your list")
+      alert(`${newrecipe.recipeName} is added to My Recipes.`)
   }
  
   async function handleDelete(recipe) {
@@ -80,13 +80,13 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
     updatedUser.favoriterecipes= updatedUser.favoriterecipes.filter(c => c._id !== recipe._id)
    //console.log(updatedUser.favoriterecipes)
     setUser(updatedUser)
-
+    
     favoriteArray=JSON.parse(localStorage.getItem(user.username))
     let index = favoriteArray.indexOf(recipe.recipeId)
     favoriteArray.splice(index,1)
-    console.log(favoriteArray+"after deletion")
+    //console.log(favoriteArray+"after deletion")
     localStorage.setItem(user.username,JSON.stringify(favoriteArray))
-    alert("Recipe is removed from your list")
+    alert(`${recipe.strMeal} is removed from My Recipes.`)
    //navigate(`/myrecipes/${name}`)
 }
   if (recipes.meals) {

@@ -1,8 +1,9 @@
-import {  useState } from "react";
+import {  useState,useRef } from "react";
 import RecipeDisplay from "./RecipeDisplay";
+import Form from 'react-bootstrap/Form';
 
 function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser}) {
-
+  const searchRef = useRef()
   let [input, setInput] = useState();
 //console.log(user.id)
   function handleChange(e) {
@@ -11,8 +12,9 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (input !== undefined)
-      getRecipes(input)
+    let searchWord = searchRef.current.value
+    if (searchWord !== undefined)
+      getRecipes(searchWord)
   }
 
   async function getRecipes(searchWord) {
@@ -35,12 +37,15 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
   if (recipes) {
     return (
       <div>
-        <form style={{marginTop:"50px"}}onSubmit={handleSubmit}>
+        <Form style={{marginTop:"50px"}} onSubmit={handleSubmit}>
+          
           <h1 className="search">Welcome to my recipe world</h1>
-          <input size="50" value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" />
+          <div style={{display:"flex"}}>
+          {/* <input size="50" value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" /> */}
+          <Form.Control size="lg" ref={searchRef} type="text" placeholder="Search for recipes, ingredients" />
           <button><i className="fa-solid fa-magnifying-glass"></i></button>
           {/* <button style={{marginTop:"30px"}} onClick={() => { setRecipes(""); setInput("") }}>Reset</button> */}
-        </form>
+       </div> </Form>
 
         <div className="App">
           < RecipeDisplay recipes={recipes} myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser}/>

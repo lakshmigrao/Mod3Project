@@ -56,8 +56,8 @@ function Register({ setUser }) {
         navigate('/')
     }
 
-    return (<>
-     <div style={{textAlign:"center", marginTop: "50px", color: "white" }}>
+    return (<div className="register">
+     <div style={{textAlign:"center", marginTop: "25px", color: "white" }}>
             <h3>Sign up with : </h3> <br />
             <a href="#"><i className="fa-brands fa-facebook loginsm"></i></a>
             <a href="#"><i className="fa-brands fa-github loginsm"></i></a>
@@ -68,8 +68,7 @@ function Register({ setUser }) {
             
         </div>
         
-        
-        <Form onSubmit={handleSubmit} className="register" style={{ width: "600px", marginTop: "20px" }}>
+        <Form onSubmit={handleSubmit} style={{ width: "400px", marginTop: "20px" }}>
         <Row className="g-2">
             <Col md>
             <FloatingLabel
@@ -115,7 +114,7 @@ function Register({ setUser }) {
                 <Form.Control size="sm" ref={passRef} type="password" placeholder="Password" />
             </FloatingLabel>
             <Form.Check
-                    style={{ marginTop: "75px", fontSize: "20px", color: "white",marginLeft:"50px" }}
+                    style={{ marginTop: "50px", fontSize: "20px", color: "white" }}
                     type='checkbox'
                     id='default-checkbox'
                     label='I have read and agree to the terms '
@@ -123,11 +122,11 @@ function Register({ setUser }) {
             
                
 
-            <button style={{ marginTop: "75px", width: "520px" }} type="submit">Register</button>
+            <button style={{ marginTop: "50px", width: "400px" }} type="submit">Register</button>
             <br /><br /><br /><br />
         </Form>
 
-    </>)
+    </div>)
 }
 // <div className="user-auth">
 //     <form style={{width:"375px"}} onSubmit={handleSubmit} className="register">

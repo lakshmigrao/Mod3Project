@@ -63,10 +63,13 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
      
         return (
             <div className="details">
-                    <div className="recipeDetails one"><img  src={recipeDetails.meals[0].strMealThumb} /></div>
-                    <div className="recipeDetails one"><h2 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h2></div>
-                    <div className="recipeDetails"><a className="mealnamevideo video"href={recipeDetails.meals[0].strYoutube}><i class="fa-brands fa-youtube"></i></a></div>
-                    <ul className="ingredients"><strong>Ingredients : <br/><br/></strong>
+                <abbr className="delete" title="Go Back">
+                    <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
+                </abbr> 
+                <div className="recipeDetails"><img  style={{border: "3px solid black", boxShadow:" 12px 12px 2px 2px black"}}src={recipeDetails.meals[0].strMealThumb} /></div>
+                <div className="recipeDetails"><h2 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h2></div>
+                <div className="recipeDetails"><abbr title="Click to watch the video"><a className="mealnamevideo video"href={recipeDetails.meals[0].strYoutube}><i class="fa-brands fa-youtube"></i></a></abbr></div>
+                <ul className="ingredients"><strong>Ingredients : <br/><br/></strong>
                     
                         {ingredients.map((item,index)=>
                         <li>
@@ -76,7 +79,8 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
                     </ul>
                     <p className="instructions"><strong>Instructions : <br /><br /></strong>{recipeDetails.meals[0].strInstructions}</p>
                     <br/><br/>
-                    <div className="recipeDetails back"><button onClick={goBack}>Back</button></div>
+                    {/* <div className="recipeDetails back"><button onClick={goBack}>Back</button></div> */}
+                    
                 
             </div>)
       {/*       )}else{

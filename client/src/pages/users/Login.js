@@ -48,8 +48,8 @@ function Login({ setUser }) {
         navigate('/')
 
     }
-    return (<>
-        <div style={{marginTop: "50px", color: "white", textAlign:"center" }}>
+    return (<div className="loginpage">
+        <div style={{marginTop: "25px", color: "white", textAlign:"center" }}>
             <h3>Sign in with : </h3> <br />
             <a href="#"><i className="fa-brands fa-facebook loginsm"></i></a>
             <a href="#"><i className="fa-brands fa-github loginsm"></i></a>
@@ -59,18 +59,18 @@ function Login({ setUser }) {
         </div>
         <br />
         
-        <Form onSubmit={handleSubmit} className="register" style={{ width: "600px", marginTop: "20px" }}>
+        <Form onSubmit={handleSubmit} style={{ width: "400px", marginTop: "0px" }}>
             <FloatingLabel
                 controlId="floatingInput"
                 label="Username"
                 className="mb-3"
             >
-                <Form.Control size="sm" ref={userRef} type="username" placeholder="Username" />
+                <Form.Control ref={userRef} type="username" placeholder="Username" />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingPassword" label="Password">
-                <Form.Control size="sm" ref={passRef} type="password" placeholder="Password" />
+            <FloatingLabel controlId="floatingPassword" label="Password"> 
+                <Form.Control ref={passRef} type="password" placeholder="Password" />
             </FloatingLabel>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", textAlign:"center" }}>
                 <Form.Check
                     style={{ marginTop: "75px", fontSize: "20px", color: "white", width: "200px" }}
                     type='checkbox'
@@ -78,17 +78,17 @@ function Login({ setUser }) {
                     label='Remember Me'
                 />
                 <br />
-                <a href="#" style={{ marginTop: "75px", fontSize: "20px", marginLeft: "150px" }} className="login" ><strong>Forgot Password?</strong></a></div>
+                <a href="#" style={{ marginTop: "75px", fontSize: "20px"}} className="login" ><strong>Forgot Password?</strong></a></div>
             {/* <Button variant="primary" type="submit">
         Submit
       </Button> */}
 
-            <button style={{ marginTop: "75px", width: "520px" }} type="submit">Login</button>
+            <button style={{ marginTop: "75px", width: "300px" }} type="submit">Login</button>
             <br /><br /><br /><br />
-            <h5 style={{ marginLeft: "150px", color: "white" }}>Not a member? <a href="/register" className="login"><strong>Register</strong></a></h5>
+            <h5 style={{ textAlign:"center", color: "white" }}>Not a member? <a href="/register" className="login"><strong>Register</strong></a></h5>
         </Form>
 
-    </>)
+    </div>)
     {/*<div className="user-auth">
             
              <form style={{ width: "300px" }} onSubmit={handleSubmit} className="register">
