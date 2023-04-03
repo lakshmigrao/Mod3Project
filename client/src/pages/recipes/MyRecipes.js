@@ -8,8 +8,10 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
     let updatedUser = {}
 
     let navigate = useNavigate()
-    // let { name } = useParams()
-    // console.log(name)
+
+function goBack(){
+    navigate('/')//-1 to go back to previous page
+}  
     useEffect(() => {
         
      loadData()
@@ -38,13 +40,14 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
 
 
     if (user.favoriterecipes?.length) {
-        return (<>
-        
-            {/* <i clasName="fa-regular fa-plus-large login"></i> */}
-            <div className="App">
+        return (<div style={{display:"flex"}}>
+            <abbr className="back" title="Go Back">
+                <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer", marginLeft:"50px",marginTop:"50px"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
+            </abbr> 
+            <div className="App">        
                 {user.favoriterecipes.map((item, index) =>
                     <div key={index} className="favorite recipeCard"> 
-                        <i onClick={() => { handleDelete(item) }} style={{color:"gray", fontSize:"25px", marginLeft:"225px", cursor:"pointer"}} class="fa-solid fa-xmark"></i>       
+                        <abbr title="Remove from My Recipes"><i onClick={() => { handleDelete(item) }} style={{fontSize:"25px", marginLeft:"225px", cursor:"pointer"}} class="fa-solid fa-xmark xmark"></i></abbr>       
                         <h2>{item.recipeName}</h2>
                         {/* <h3>{item.recipeId}</h3> */}
                         <a className="video" href={item.videopath}><i class="fa-brands fa-youtube"></i></a>
@@ -60,21 +63,32 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
                         </Link>                        
                         {/* <button onClick={() => { handleDelete(item) }}> Remove </button> */}
                         <br />
-                        <p><strong>Instructions</strong></p>
-                        <p style={{maxLines:"1"}}>{item.instructions}</p>
+                        {item.instructions?<p><strong>Instructions</strong></p>:''}
+                        <p>{item.instructions.substring(0,130)}.....<Link to={`/myrecipes/${item._id}`}>Click to read</Link></p>
                        
                         {/* <h2>{item.recipe.label}</h2>
         <img src={item.recipe.image} alt="" /> */}
 
-                    </div>)}</div></>
+                    </div>)}
+                    <div style={{display:"flex", justifyContent:"flex-end", marginTop:"50px"}}><abbr title="Click to create a new reipe"><Link to="/myrecipes/newrecipe"><i style={{fontSize:"50px", marginLeft : "0px"}} className="fa-solid fa-plus plus"></i></Link></abbr></div>
+                    </div></div>
         )
     } else {
         return (
-            <div>
-                <Link to="/myrecipes/newrecipe"><button>Create a new recipe</button></Link>
+            <>
+            {localStorage.removeItem(user.username)}
+            <abbr className="back" title="Go Back">
+                <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer", marginLeft:"50px",marginTop:"50px"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
+            </abbr> 
+            <div style={{display:"flex",color:"white", justifyContent:"center"}}>
+
                 
-                <h1 style={{marginLeft:"400px", marginTop:"200px"}}>No Recipes in Favorites List</h1>
-            </div>)
+                <h2 style={{marginTop:"300px"}}>MyRecipes is empty, would you like to create one?  </h2>
+                <Link to="/myrecipes/newrecipe"><i style={{fontSize:"50px",marginTop:"300px", marginLeft : "50px"}} className="fa-solid fa-plus plus"></i></Link>
+                
+                
+
+            </div></>)
     }
 }
 

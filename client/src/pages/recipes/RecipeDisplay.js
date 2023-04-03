@@ -102,10 +102,10 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
           {user?.id? 
           (favoriteArray?.indexOf(item.idMeal) > -1) ?
 
-            <i onClick={() => { handleDelete(item) }} style={{ color: "red" }} className="fa-solid fa-heart"></i>
+            <i onClick={() => { handleDelete(item) }} style={{ marginLeft:"240px"}} className="fa-solid fa-heart"></i>
           :
           <>
-            <i onClick={() => { addToMyRecipes(item) }} className="fa-regular fa-heart"></i>
+            <i onClick={() => { addToMyRecipes(item) }} style={{ marginLeft:"240px"}} className="fa-regular fa-heart"></i>
             {/* <button onClick={() => { addToMyRecipes(item) }}>Add to My Recipes</button>  */}
           </>
             :''}
@@ -128,7 +128,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
         //   <FontAwesomeIcon icon="fa-solid fa-heart" />
         
         //  :''}  */}
-          <Link to={`/recipes/${item.idMeal}`}>  <h2>{item.strMeal}</h2>
+          <Link to={`/recipes/${item.idMeal}`}>  <h4>{item.strMeal}</h4>
               {/* {item.idMeal} */}
             <img src={item.strMealThumb} alt="" /></Link>
 

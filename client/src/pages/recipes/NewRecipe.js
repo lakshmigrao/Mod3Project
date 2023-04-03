@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { getARecipe,updateARecipe } from '../../services/recipeService'
+import { createNewRecipeInFav } from '../../services/recipeService'
 
 function NewRecipe({user,setUser}){
     let favoriteArray = []
@@ -23,8 +23,7 @@ function NewRecipe({user,setUser}){
         },[favoriteArray])
 
         async function populateFavoriteArray(){
-
-            if(JSON.parse(localStorage.getItem(user.username))){
+         if(JSON.parse(localStorage.getItem(user.username)) ){
                 favoriteArray=localStorage.getItem(user.username)
                 console.log(favoriteArray)
             }else{
@@ -38,7 +37,7 @@ function NewRecipe({user,setUser}){
           }
         let newrecipe = {
             recipeId: '',
-            // userId: '',
+            userId: '',
             recipeName: '',
             ingredients: '',
             measures: '',
@@ -86,17 +85,17 @@ function NewRecipe({user,setUser}){
             e.preventDefault()
     
             let newrecipe = {
-                recipeId: recipeIdRef,
-                // userId: user.id,
-                recipeName: nameRef,
-                ingredients: ingRef,
-                measures: mesRef,
-                instructions: insRef,
-                imagepath: imgRef,
-                videopath: vidRef
+                recipeId: recipeIdRef.current.value,
+                userId: user._id,
+                recipeName: nameRef.current.value,
+                ingredients: ingRef.current.value,
+                measures: mesRef.current.value,
+                instructions: insRef.current.value,
+                imagepath: imgRef.current.value,
+                videopath: vidRef.current.value
               } 
-              
-            if(JSON.parse(localStorage.getItem(user.username))){
+              console.log(newrecipe)
+              if(JSON.parse(localStorage.getItem(user.username))){
                 favoriteArray=JSON.parse(localStorage.getItem(user.username))
                 favoriteArray.push(newrecipe.recipeId)
                 localStorage.setItem(user.username,JSON.stringify(favoriteArray))
@@ -107,36 +106,54 @@ function NewRecipe({user,setUser}){
               let updatedUser = { ...user }
               updatedUser.favoriterecipes.push(newrecipe)
               setUser(updatedUser)
-              await addRecipeToFav(newrecipe)
-              navigate('/')
+              await createNewRecipeInFav(newrecipe)
+              navigate('/myrecipes')
               alert(`${newrecipe.recipeName} is added to My Recipes.`)
         
            
         }
+
+        function goBack(){
+          navigate(-1)
+        }
     
         return ( 
             <div>
-                <h1>New Recipe </h1>
+                
                 <div className='buttons details' style={{ flexDirection: 'column' }}>
+                <h2 style={{display:"flex", justifyContent:"center"}}>New Recipe </h2>
+                <abbr className="delete" title="Go Back">
+                    <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
+                </abbr>
                     <form onSubmit={handleSubmit}>
     
-                        <img style={{width:"300px",height:"300px"}} src={recipe.imagepath} alt="" />
+                        {/* <img style={{width:"300px",height:"300px"}} src={recipe.imagepath} alt="" /> */}
+                        <label htmlFor="imagePath">Image Path :</label><br />
+                        <textarea ref={imgRef} id="imagePath" /><br /><br />
                         <br />
+
+                        <label htmlFor="videoPath">Video Path :</label><br />
+                        <textarea ref={vidRef} id="videoPath" /><br /><br />
+                        <br />
+
                         <label htmlFor="rname">Recipe Name :</label><br />
-                        <textarea ref={nameRef} id="rname" defaultValue={recipe.recipeName} /><br /><br />
+                        <textarea ref={nameRef} id="rname"  /><br /><br />
+
+                        <label htmlFor="rid">Recipe Id : (A number between 1 and 1000)</label><br />
+                        <textarea ref={recipeIdRef} id="rid"  /><br /><br />
                 
                         <label htmlFor="ing">Ingredients :</label><br />
-                        <textarea ref={ingRef} id="ing" cols="60" rows="3" defaultValue={recipe.ingredients} /><br /><br />
+                        <textarea ref={ingRef} id="ing" cols="60" rows="3"  /><br /><br />
 
                         <label htmlFor="ing">Measures :</label><br />
-                        <textarea ref={mesRef} id="ing" cols="60" rows="3" defaultValue={recipe.measures} /><br /><br />
+                        <textarea ref={mesRef} id="ing" cols="60" rows="3"  /><br /><br />
                         
                         <label htmlFor="ins">Instructions :</label><br />
-                        <textarea ref={insRef} id="ins" cols="60" rows="8" defaultValue={recipe.instructions} /><br /><br />
+                        <textarea ref={insRef} id="ins" cols="60" rows="8"  /><br /><br />
     
-                        <button style={{marginLeft:"150px"}}>Save</button>
+                        <button style={{marginLeft:"150px"}}>Save <i style={{fontSize:"20px"}} class="fa-regular fa-floppy-disk"></i></button>
                         <Link to={`/myrecipes`}>
-                            <button style={{marginLeft:"100px"}}>Back</button>
+                            <button style={{marginLeft:"100px"}}><i class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>Back</button>
                         </Link>
                     </form>
                     

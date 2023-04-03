@@ -54,12 +54,12 @@ form{
 }
 
 .recipeCard{
-  border: 2px solid white;
+  border: 0px solid white;
   background-color: white;
   width : 300px;
-  height : 300px;
-  padding: 20px ;
-  padding-bottom: 20px;
+  height : 280px;
+  padding: 10px ;
+  /* padding-bottom: 30px; */
   margin: 20px;  
   border-radius: 5%;
   /* background-color: lightyellow; */
@@ -73,8 +73,9 @@ form{
 
 .recipeCard img{
   
-  width:250px;
-  height:250px;
+  width:260px;
+  height:260px;
+  border-radius: 5%;
 }
 .recipeDetails{
     /* width:300px; */
@@ -136,7 +137,10 @@ button .back{
 }
 
 .favorite{
-  height :600px
+  height :600px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-bottom: 20px;
 }
 button{
   transition-duration: 0.4s;
@@ -145,7 +149,7 @@ button{
   border: 2px solid darkslategrey;
   margin:10px;
   border-radius: 15px;
-  padding: 5px 15px;
+  padding: 5px 5px;
  
   
   /* width : 80px;
@@ -191,6 +195,8 @@ button:active{
 
 .register{
   border: 2px solid darkgray ;
+  background-image: url('./images/login.jpg');
+  background-size: cover;
   padding : 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -203,6 +209,8 @@ button:active{
 }
 .loginpage{
   border: 2px solid darkgray ;
+  background-image: url('./images/login.jpg');
+  background-size: cover;
   padding : 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -257,6 +265,30 @@ color:blue;
  .control {
  height: 20px;
 }
+.back{
+  color:white;
+}
+.back:hover{
+
+  color:black;
+}
 .delete:hover{
   color:gray;
+}
+
+.plus{
+  color:white;
+}
+.plus:hover{
+  color:black;
+}
+
+.xmark{
+
+  color:gray
+}
+
+.xmark:hover{
+
+  color: black
 }

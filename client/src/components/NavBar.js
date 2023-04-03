@@ -14,8 +14,8 @@ function NavBar({ user, setUser }) {
       <Navbar  bg="dark" variant="dark" expand="lg" sticky='top' style={{fontSize : "30px"}} >
         {/* className="d-flex navbar" */}
         <Container>
-          <Navbar.Brand >Welcome {user}</Navbar.Brand>
-          <Navbar.Brand >Recipe World!!!</Navbar.Brand>
+          <Navbar.Brand >Welcome {user.charAt(0).toUpperCase()+user.slice(1)}</Navbar.Brand>
+          <Navbar.Brand >To My Recipe World!!!</Navbar.Brand>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav justify variant="pills" className="me-auto container-fluid">

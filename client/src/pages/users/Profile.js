@@ -54,8 +54,8 @@ function Profile({ user,setUser }) {
             <br /><br />
             <div style={{display:"flex", justifyContent:"center"}}>
             <Link to={`/profile/edit`}>
-            <button >Edit Profile</button> </Link>
-            <button onClick={handleDelete} style={{marginLeft : "100px"}}>Delete Profile</button>
+            <button ><i style={{fontSize:"25px"}}class="fa-solid fa-pen-to-square"></i>Edit Profile</button> </Link>
+            <button onClick={handleDelete} style={{marginLeft : "100px",fontSize:"15px"}}><i class="fa-solid fa-trash"></i>Delete Profile</button>
            </div>
         </div>
         

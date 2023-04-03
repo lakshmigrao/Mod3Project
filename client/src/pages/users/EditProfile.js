@@ -74,8 +74,8 @@ function EditProfile({user,setUser}){
                 <Form.Control type="email" ref={emailRef} defaultValue={user.email}/>
             </Form.Group>
             <div style={{marginTop:"50px", display:"flex", justifyContent:"center"}}>
-                <button type="submit">Save</button>
-                <Link to="/profile"><button style={{marginLeft : "100px"}}>Back</button></Link>
+                <button type="submit">Save <i style={{fontSize:"20px"}} class="fa-regular fa-floppy-disk"></i></button>
+                <Link to="/profile"><button style={{marginLeft : "100px"}}><i class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>Back</button></Link>
            </div>
      
             </Form>

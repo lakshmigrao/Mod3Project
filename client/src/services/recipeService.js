@@ -61,3 +61,13 @@ export async function removeRecipeFromUserFavUsingId(recipeIdMeal) {
         console.log(err.message)
     }
 }
+export async function createNewRecipeInFav(recipe) {
+
+    const axios = customAxiosWithAuth()
+    try {
+        const response = await axios.post('/myrecipes', recipe)
+        return response.data
+    } catch (err) {
+        console.log(err.message)
+    }
+}
