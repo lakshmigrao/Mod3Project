@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/samarkan');
+
 body{
   background: url('./images/freshvegbg.jpg') no-repeat fixed center;
   background-size: 100% ;
@@ -98,6 +100,7 @@ form{
   /* display: inline; */
   
   background-color: white;
+  /* background-image: url('./images/transparent.jpg'); */
   margin: 100px auto;
   /* border:100px 150px 150px 150px; */
   padding:50px 100px 100px 100px;
@@ -164,15 +167,24 @@ button:active{
   border: 2px solid blueviolet;
   border-radius: 15px;
 }
+.tab{
+
+  text-decoration: none;
+  color:white;
+}
 .tab:hover{
+  
   /* text-decoration: underline; */
-  -webkit-transform: scale(1.5);
+  /* -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
-    transform: scale(1.5);
+    transform: scale(1.5); */
+    text-decoration: none;
     /* box-shadow: 0 0 0 2px #000000; */
     transition: .5s ease;
-    background-color: darkgray;
-    border-radius: 10px;
+    /* font-size: 30px; */
+    /* background-color: darkgray; */
+    /* border-radius: 10px; */
+    color : gold;
 }
 
 .profile{
@@ -289,6 +301,11 @@ color:blue;
 }
 
 .xmark:hover{
-
   color: black
+}
+
+.fontHindi{
+  font-family: 'Samarkan', sans-serif;
+  color:gold;
+  font-size: 40px;
 }
