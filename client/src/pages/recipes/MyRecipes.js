@@ -10,7 +10,7 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
     let navigate = useNavigate()
 
 function goBack(){
-    navigate('/')//-1 to go back to previous page
+    navigate('-1')//-1 to go back to previous page
 }  
     useEffect(() => {
         
