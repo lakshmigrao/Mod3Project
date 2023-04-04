@@ -1,3 +1,5 @@
 # Mod3Project
 
-Recipe App
+# Introduction
+
+Recipe App is a full stack application using MERN stack. It uses two usermodels, UserModel and RecipeModel.
