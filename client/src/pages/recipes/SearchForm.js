@@ -43,7 +43,7 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
           <div style={{display:"flex"}}>
           {/* <input size="50" value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" /> */}
           <Form.Control size="lg" ref={searchRef} type="text" placeholder="Search for recipes, ingredients" />
-          <button><i className="fa-solid fa-magnifying-glass"></i></button>
+          <button style={{width:"40px"}}><i className="fa-solid fa-magnifying-glass"></i></button>
           {/* <button style={{marginTop:"30px"}} onClick={() => { setRecipes(""); setInput("") }}>Reset</button> */}
        </div> </Form>
 
