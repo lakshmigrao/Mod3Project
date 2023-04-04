@@ -58,8 +58,8 @@ https://trello.com/b/gfTDgO45/mod3-recipe-app
 
 # Future Enhancements
 
-### introducing a new model, commentmodel to comment on each recipe.
-### modifying the project to use Redux.
+- Introducing a new model, commentmodel to comment on each recipe.
+- Modifying the project to use Redux.
 
 
 
