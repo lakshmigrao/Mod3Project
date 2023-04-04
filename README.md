@@ -6,4 +6,4 @@ Recipe App is a full stack applicatopm using MERN stack. It uses two usermodels,
 
 Recipe App is a full stack application using MERN stack. It uses two usermodels, UserModel and RecipeModel.
 
-[ER Diagram](/client/src/images/ERdiagram.png)
+![ER Diagram](/client/src/images/ERdiagram.png)
