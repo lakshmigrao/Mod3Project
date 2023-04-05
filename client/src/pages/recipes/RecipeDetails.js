@@ -64,9 +64,9 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
         return (
             <div className="details">
                 <abbr className="delete" title="Go Back">
-                    <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
+                    <i onClick={goBack} style={{marginTop:"50px",fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
                 </abbr> 
-                <div className="recipeDetails"><h1 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h1></div>
+                <div className="recipeDetails"><h1 className="recipenamebg">{recipeDetails.meals[0].strMeal}</h1></div>
                 <div style={{display:"flex", justifyContent:"space-between"}}>
                     <div>
                         <ul className="ingredients"><strong>Ingredients : <br/><br/></strong>

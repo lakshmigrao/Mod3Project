@@ -29,7 +29,7 @@ async function callGetARecipe(){
             <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
             </abbr> 
-            <div className="recipeDetails"><h1>{recipe.recipeName}</h1></div>
+            <div className="recipeDetails"><h1 className="recipenamebg">{recipe.recipeName}</h1></div>
 
             <div style={{display:"flex", justifyContent:"space-between"}}>
                 <div>

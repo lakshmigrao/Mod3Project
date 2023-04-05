@@ -59,7 +59,7 @@ function Login({ setUser }) {
         </div>
         <br />
         
-        <Form onSubmit={handleSubmit} style={{ width: "400px", marginTop: "0px" }}>
+        <Form onSubmit={handleSubmit} style={{ width: "250px", marginTop: "0px" }}>
             <FloatingLabel
                 controlId="floatingInput"
                 label="Username"
@@ -83,7 +83,7 @@ function Login({ setUser }) {
         Submit
       </Button> */}
 
-            <button style={{ marginTop: "75px", width: "300px" }} type="submit">Login</button>
+            <button style={{ marginTop: "75px", width: "250px" }} type="submit">Login</button>
             <br /><br /><br /><br />
             <h5 style={{ textAlign:"center", color: "white" }}>Not a member? <a href="/register" className="login"><strong>Register</strong></a></h5>
         </Form>
