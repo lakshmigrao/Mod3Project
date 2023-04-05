@@ -33,7 +33,7 @@ function EditRecipe({user,setUser}){
             await updateARecipe(params.rid, updatedRecipe)
             
             navigate(`/myrecipes`)
-            alert(`Changes are saved.`)
+            toast(`Changes are saved.`)
             
         }
         function goBack(){

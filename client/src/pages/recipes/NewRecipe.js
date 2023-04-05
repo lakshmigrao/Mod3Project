@@ -115,7 +115,7 @@ function NewRecipe({user,setUser}){
               setUser(updatedUser)
               await createNewRecipeInFav(newrecipe)
               navigate('/myrecipes')
-              alert(`${newrecipe.recipeName} is added to My Recipes.`)
+              toast(`${newrecipe.recipeName} is added to My Recipes.`)
         
            
         }

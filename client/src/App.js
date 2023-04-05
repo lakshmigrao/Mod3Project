@@ -17,6 +17,8 @@ import { userInfo } from './services/userService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap";
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Footer'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -53,6 +55,18 @@ function App() {
     return (
     <div >
       {/* className="App" */}
+      <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={true}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+          />    
       <Nav user={loggedIn} setUser={setUser}/>
       <Routes>
         <Route path="/" element={<SearchForm recipes={recipes} setRecipes={setRecipes} myRecipes={myRecipes} setMyRecipes={setMyRecipes} user={user} setUser={setUser} />} />

@@ -23,12 +23,20 @@ function Register({ setUser }) {
     const countryRef = useRef()
     const emailRef = useRef()
     const passRef = useRef()
+    const checkRef = useRef()
 
     let [form, setForm] = useState(emptyForm)
 
     // const handleChange = (e) => {
     //     setForm({ ...form, [e.target.name]: e.target.value })
     // }
+        const [isChecked, setIsChecked] = useState(false);
+      
+        const handleCheckboxChange = () => {
+            setIsChecked(!isChecked);
+        }
+
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         let newForm = {
@@ -55,6 +63,7 @@ function Register({ setUser }) {
 
         navigate('/')
     }
+    let buttonActive = false;
 
     return (<div className="register">
      <div style={{textAlign:"center", marginTop: "25px", color: "white" }}>
@@ -118,11 +127,14 @@ function Register({ setUser }) {
                     type='checkbox'
                     id='default-checkbox'
                     label='I have read and agree to the terms '
+                    onChange={handleCheckboxChange}
                 />
-            
+              {isChecked && (<button style={{ marginTop: "50px", width: "400px" }} type="submit">Register</button>)
+              
+              } 
                
-
-            <button style={{ marginTop: "50px", width: "400px" }} type="submit">Register</button>
+           
+           
             <br /><br /><br /><br />
         </Form>
 
