@@ -13,6 +13,7 @@ body{
   display: flex;
    flex-flow: row wrap;
   justify-content: center;
+  
 }
 
 .App-logo {
@@ -88,8 +89,10 @@ form{
 
 }
 .recipeDetails img{
+  border:3px solid black;
+  box-shadow:12px 12px 2px 2px black;
   margin-top: 30px;
-  width:400px;
+  width:300px;
   height:300px;
   border-radius: 20px;
   
@@ -97,14 +100,14 @@ form{
   /* margin-left: 500px; */
 }
 .details{
-  /* display: inline; */
-  
-  background-color: white;
-  /* background-image: url('./images/transparent.jpg'); */
+  /* background-color: white; */
+  background: url('./images/headernote.png');
+  /* background: url('./images/notepad.png'); */
+  background-size: cover;
   margin: 100px auto;
   /* border:100px 150px 150px 150px; */
-  padding:50px 100px 100px 100px;
-  width:1200px;
+  padding:300px 150px 150px 150px;
+  width:1000px;
   border-radius: 20px;
 }
 
@@ -117,7 +120,7 @@ form{
   border-radius: 10px;
 }
 .mealnamevideo{
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* margin-left:535px; */
 }
 /* .form{
@@ -140,7 +143,7 @@ button .back{
 }
 
 .favorite{
-  height :600px;
+  height :500px;
   margin-left: 15px;
   margin-right: 15px;
   padding-bottom: 20px;
@@ -202,6 +205,7 @@ button:active{
 .search{
   margin-top: 100px;
   margin-bottom: 30px;
+  margin-left: 60px;
   color : darkgray;
 }
 
@@ -254,7 +258,7 @@ button:active{
  .video{
 
   color : red;
-  font-size: 30px;
+  font-size: 40px;
  }
  .login{
   color:white;
@@ -308,4 +312,86 @@ color:blue;
   font-family: 'Samarkan', sans-serif;
   color:gold;
   font-size: 40px;
+}
+spanhindi{
+
+  font-family: 'Samarkan', sans-serif;
+  color:gold;
+  font-size: 40px;
+}
+footer{
+  position: fixed;
+ bottom: 0px;
+
+  background: #111;
+  height:50px;
+  width : 100vw;
+  font-family: "Open Sans";
+  padding-top:10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+} 
+/* .footer-content{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+} */
+
+/* .footer-content h3{
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+} */
+
+/* .footer-content p{
+  max-width: 500px;
+  margin: 10px auto;
+  line-height:28px;
+  font-size: 14px;
+} */
+.socials{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin: 1rem 0 3rem 0;
+}
+
+.socials li{
+  margin: 0 10px;
+}
+.socials a{
+  text-decoration: none;
+  color: #fff;
+}
+.socials a i{
+  font-size:1.1rem;
+  transition : color .4s ease
+}
+.socials a:hover{
+  color: aqua;
+
+}
+
+.footer-bottom{
+  background: #000;
+  width:100vh;
+  padding : 20px 0;
+  text-align: center;
+}
+
+.footer-bottom p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.footer-bottom span{
+  text-transform:  uppercase;
+  opacity: .4;
+  font-weight: 200;
 }

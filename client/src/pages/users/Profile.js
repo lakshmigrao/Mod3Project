@@ -21,31 +21,31 @@ function Profile({ user,setUser }) {
         <div className="profile">
             <h1>Welcome to {user.username.toUpperCase()} 's Profile</h1>
             <br /><br />
-            <Form>
+            <Form style={{width:"500px"}}>
                 <Row>
                     <Col>
             <Form.Group className="mb-3" >
-                <Form.Label>First Name</Form.Label>
+                <Form.Label> <strong>First Name</strong></Form.Label>
                 <Form.Control type="fname" placeholder={user.fname} disabled/>
             </Form.Group>
             </Col>
             <Col>
             <Form.Group className="mb-3" >
-                <Form.Label>Last Name</Form.Label>
+                <Form.Label> <strong>Last Name</strong></Form.Label>
                 <Form.Control type="lname" placeholder={user.lname} disabled/>
             </Form.Group>
             </Col>
             </Row>
             <Form.Group className="mb-3" >
-                <Form.Label>Country of residence</Form.Label>
+                <Form.Label> <strong>Country of residence</strong></Form.Label>
                 <Form.Control type="country" placeholder={user.country} disabled/>
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>Username</Form.Label>
+                <Form.Label> <strong>Username</strong> </Form.Label>
                 <Form.Control type="username" placeholder={user.username} disabled/>
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>E-mail</Form.Label>
+                <Form.Label> <strong>E-mail</strong> </Form.Label>
                 <Form.Control type="email" placeholder={user.email} disabled/>
             </Form.Group>
      

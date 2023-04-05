@@ -29,26 +29,33 @@ async function callGetARecipe(){
             <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
             </abbr> 
-            <div className="recipeDetails"><img style={{border: "3px solid black", boxShadow:" 12px 12px 2px 2px black"}}src={recipe.imagepath} /></div>
-            <br />
-            <div className="recipeDetails"><h3>{recipe.recipeName}</h3></div>
-            <div className="recipeDetails"><a className=" video"href={recipe.videopath}><i class="fa-brands fa-youtube"></i></a></div>
-            {recipe.ingredients?.[0]?
-                <div className="ingredients"><strong>Ingredients   </strong> : <strong>Measures    </strong> 
-                 <br />
-                {recipe?.ingredients?.map((item,index )=>
-                    <p>{index+1}. {recipe.ingredients[index]} : {recipe.measures[index]}</p>
-                )}
+            <div className="recipeDetails"><h1>{recipe.recipeName}</h1></div>
+
+            <div style={{display:"flex", justifyContent:"space-between"}}>
+                <div>
+                    {recipe.ingredients?.[0]?
+                    <div className="ingredients"><strong>Ingredients   </strong> : <strong>Measures    </strong> 
+                    <br /><br />
+                    {recipe?.ingredients?.map((item,index )=>
+                        <p>{index+1}. {recipe.ingredients[index]} : {recipe.measures[index]}</p>
+                    )}
+                    </div>
+                : ''}
                 </div>
-            : ''}
-          
+                <div>
+                    <div className="recipeDetails"><img src={recipe.imagepath} alt={recipe.recipeName}/></div>
+                    <br />
+                    <div className="recipeDetails"><a className="video"href={recipe.videopath}><i class="fa-brands fa-youtube"></i></a></div>
+                </div>
+            </div>
             {recipe.instructions?<p className="instructions"><strong>Instructions : <br /></strong>{recipe.instructions}</p>:''}
             <br/>
-            <Link to={`/myrecipes/edit/${recipe._id}`}>
-                 <button style={{marginLeft:"375px"}}>Edit <i style={{fontSize:"25px"}}class="fa-solid fa-pen-to-square"></i></button>
-            </Link>
-            <button  style={{marginLeft:"100px"}}onClick={goBack}><i class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>Back</button>
-        
+            <div style={{display:"flex",justifyContent:"space-evenly"}}>
+                <Link to={`/myrecipes/edit/${recipe._id}`}>
+                    <button>Edit <i style={{fontSize:"25px"}}class="fa-solid fa-pen-to-square"></i></button>
+                </Link>
+                <button onClick={goBack}><i class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>Back</button>
+            </div>
         </div>
     )
 }

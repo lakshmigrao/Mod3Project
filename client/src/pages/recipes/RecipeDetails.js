@@ -66,22 +66,26 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
                 <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
                 </abbr> 
-                <div className="recipeDetails"><img  style={{border: "3px solid black", boxShadow:" 12px 12px 2px 2px black"}}src={recipeDetails.meals[0].strMealThumb} /></div>
-                <div className="recipeDetails"><h2 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h2></div>
-                <div className="recipeDetails"><abbr title="Click to watch the video"><a className="mealnamevideo video"href={recipeDetails.meals[0].strYoutube}><i class="fa-brands fa-youtube"></i></a></abbr></div>
-                <ul className="ingredients"><strong>Ingredients : <br/><br/></strong>
-                    
-                        {ingredients.map((item,index)=>
-                        <li>
-                          {ingredients[index]!==''?<>{index}.  {ingredients[index]} : {measures[index]}</>: ''}
-                        </li>
-                        )}
-                    </ul>
-                    <p className="instructions"><strong>Instructions : <br /><br /></strong>{recipeDetails.meals[0].strInstructions}</p>
-                    <br/><br/>
-                    {/* <div className="recipeDetails back"><button onClick={goBack}>Back</button></div> */}
-                    
-                
+                <div className="recipeDetails"><h1 className="mealnamevideo">{recipeDetails.meals[0].strMeal}</h1></div>
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                    <div>
+                        <ul className="ingredients"><strong>Ingredients : <br/><br/></strong>
+                            
+                            {ingredients.map((item,index)=>
+                            <li key={index}>
+                                {ingredients[index]!==''?<>{index}.  {ingredients[index]} : {measures[index]}</>: ''}
+                            </li>
+                            )}
+                        </ul>
+                    </div>
+                    <div>
+                        <div className="recipeDetails"><img  src={recipeDetails.meals[0].strMealThumb} /></div>
+                        <br />
+                        <div className="recipeDetails"><abbr title="Click to watch the video"><a className="mealnamevideo video"href={recipeDetails.meals[0].strYoutube}><i class="fa-brands fa-youtube"></i></a></abbr></div>
+                    </div>
+                </div>
+                <p className="instructions"><strong>Instructions : <br /><br /></strong>{recipeDetails.meals[0].strInstructions}</p>
+                <br/><br/>
             </div>)
       {/*       )}else{
             return(<>

@@ -17,6 +17,7 @@ import { userInfo } from './services/userService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap";
 import { useNavigate } from 'react-router-dom';
+import Footer from './components/Footer'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -75,6 +76,7 @@ function App() {
         </> 
       }
       </Routes>
+      <Footer />
     </div>
   );
 }

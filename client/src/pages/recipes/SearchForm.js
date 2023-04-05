@@ -1,15 +1,21 @@
-import {  useState,useRef } from "react";
+import {  useState,useRef, useEffect } from "react";
 import RecipeDisplay from "./RecipeDisplay";
 import Form from 'react-bootstrap/Form';
+import { userInfo } from "../../services/userService";
 
 function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser}) {
   const searchRef = useRef()
   let [input, setInput] = useState();
+
 //console.log(user.id)
   function handleChange(e) {
     setInput(e.target.value)
   }
+useEffect(()=>{
+  console.log(user)
 
+  return ()=>{setRecipes([])}
+},[])
   function handleSubmit(e) {
     e.preventDefault()
     let searchWord = searchRef.current.value
@@ -39,7 +45,7 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
       <div>
         <Form style={{marginTop:"50px"}} onSubmit={handleSubmit}>
           
-          <h1 className="search">Welcome to my recipe world</h1>
+          <h1 className="search">Welcome to <spanhindi>recipe world</spanhindi> </h1>
           <div style={{display:"flex"}}>
           {/* <input size="50" value={input} onChange={handleChange} placeholder="Search for recipes, ingredients" /> */}
           <Form.Control size="lg" ref={searchRef} type="text" placeholder="Search for recipes, ingredients" />

@@ -19,6 +19,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
       if(user){
         populateFavoriteArray()
       }
+      console.log(user)
     },[favoriteArray])
 
     async function populateFavoriteArray(){
@@ -48,7 +49,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
       }
       let newrecipe = {
         recipeId: item.idMeal,
-        userId: user.id,
+        userId: user.id ? user.id : user._id,
         recipeName: item.strMeal,
         ingredients: ingredients,
         measures: measures,
@@ -94,14 +95,19 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
     if(user && user.favoriterecipes){
       favoriteArray = JSON.parse(localStorage.getItem(user.username))
     }
+    let userExists=false;
+    if (user?.id || user?._id){
 
+       userExists = true
+    }
     return (
-
+      
       recipes.meals.map((item, index) =>
         <div key={index} className="recipeCard card">
-          {user?.id? 
+          {/* {console.log(user," inside RecipeDisplay")} */}
+          {userExists ?
           (favoriteArray?.indexOf(item.idMeal) > -1) ?
-
+           
             <i onClick={() => { handleDelete(item) }} style={{ marginLeft:"240px"}} className="fa-solid fa-heart"></i>
           :
           <>

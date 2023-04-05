@@ -121,7 +121,7 @@ function NewRecipe({user,setUser}){
             <div>
                 
                 <div className='buttons details' style={{ flexDirection: 'column' }}>
-                <h2 style={{display:"flex", justifyContent:"center"}}>New Recipe </h2>
+                <h1 style={{display:"flex", justifyContent:"center"}}>New Recipe </h1>
                 <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
                 </abbr>

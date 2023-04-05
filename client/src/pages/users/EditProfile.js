@@ -46,31 +46,31 @@ function EditProfile({user,setUser}){
         <div className="profile">
             <h1>Edit {user.username.toUpperCase()} 's Profile</h1>
             <br /><br />
-            <Form onSubmit={handleSubmit}>
+            <Form style={{width:"500px"}}onSubmit={handleSubmit}>
                 <Row>
                     <Col>
             <Form.Group className="mb-3" >
-                <Form.Label>First Name</Form.Label>
+                <Form.Label> <strong>First Name</strong> </Form.Label>
                 <Form.Control type="fname" ref={fnameRef} defaultValue={user.fname} />
             </Form.Group>
             </Col>
             <Col>
             <Form.Group className="mb-3" >
-                <Form.Label>Last Name</Form.Label>
+                <Form.Label> <strong>Last Name</strong> </Form.Label>
                 <Form.Control type="lname" ref={lnameRef} defaultValue={user.lname} />
             </Form.Group>
             </Col>
             </Row>
             <Form.Group className="mb-3" >
-                <Form.Label>Country of residence</Form.Label>
+                <Form.Label> <strong>Country of residence</strong> </Form.Label>
                 <Form.Control type="country" ref={countryRef} defaultValue={user.country} />
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>Username</Form.Label>
+                <Form.Label> <strong>Username</strong> </Form.Label>
                 <Form.Control type="username" ref={unameRef} defaultValue={user.username} disabled />
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>E-mail</Form.Label>
+                <Form.Label> <strong>E-mail</strong> </Form.Label>
                 <Form.Control type="email" ref={emailRef} defaultValue={user.email}/>
             </Form.Group>
             <div style={{marginTop:"50px", display:"flex", justifyContent:"center"}}>

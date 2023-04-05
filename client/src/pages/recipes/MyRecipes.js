@@ -10,7 +10,7 @@ function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
     let navigate = useNavigate()
 
 function goBack(){
-    navigate('-1')//-1 to go back to previous page
+    navigate('/')//-1 to go back to previous page
 }  
     useEffect(() => {
         
@@ -50,20 +50,19 @@ function goBack(){
                         <abbr title="Remove from My Recipes"><i onClick={() => { handleDelete(item) }} style={{fontSize:"25px", marginLeft:"225px", cursor:"pointer"}} class="fa-solid fa-xmark xmark"></i></abbr>       
                         <h2>{item.recipeName}</h2>
                         {/* <h3>{item.recipeId}</h3> */}
-                        <a className="video" href={item.videopath}><i class="fa-brands fa-youtube"></i></a>
+                        {/* <a className="video" href={item.videopath}><i class="fa-brands fa-youtube"></i></a> */}
                         {/* {item.ingredients.map((list,index)=>
            
            <p>{index+1}.  {item.ingredients[index+1]} : {item.measures[index+1]}</p>
        
             )}  */} 
-                        <br />
                         <Link to={`/myrecipes/${item._id}`}>
                         {/* <button> View </button> */}
                         <img src={item.imagepath} alt="" />
                         </Link>                        
                         {/* <button onClick={() => { handleDelete(item) }}> Remove </button> */}
-                        <br />
-                        {item.instructions?<p><strong>Instructions</strong></p>:''}
+                        {/* {item.instructions?<p><strong>Instructions</strong></p>:''} */}
+                        <br /><br />
                         <p>{item.instructions.substring(0,130)}.....<Link to={`/myrecipes/${item._id}`}>Click to read</Link></p>
                        
                         {/* <h2>{item.recipe.label}</h2>

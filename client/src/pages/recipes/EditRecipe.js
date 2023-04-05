@@ -36,14 +36,14 @@ function EditRecipe({user,setUser}){
     
         return ( 
             <div>
-                <div className='buttons details' style={{ flexDirection: 'column' }}>
+                <div className='details' style={{ flexDirection: 'column' }}>
                 <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
                 </abbr>
     
                 <form onSubmit={handleSubmit}>
-                <h2>Edit Recipe </h2>
-                    <img style={{width:"300px",height:"280px",border: "3px solid black", boxShadow:" 12px 12px 2px 2px black",borderRadius:"5%"}} src={recipe.imagepath} alt="" />
+                <h1 style={{display:"flex",justifyContent:"center"}}>Edit Recipe </h1>
+                    <div className='recipeDetails'><img src={recipe.imagepath} alt="" /></div>
                     <br /><br />
                     <label htmlFor="rname">Recipe Name :</label><br />
                     <textarea ref={nameRef} id="rname" defaultValue={recipe.recipeName} /><br /><br />
