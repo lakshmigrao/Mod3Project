@@ -1,9 +1,7 @@
 # Mod3Project
 
-render for backend
-https://recipeapp-backend-tdbg.onrender.com
-https://recipeapp-client.onrender.com/
-
+<!-- render for backend
+https://recipeapp-backend-tdbg.onrender.com -->
 
 # Introduction
 
@@ -12,22 +10,19 @@ Recipe App is a full stack application using MERN stack. It uses two usermodels,
 ![ER Diagram](/client/src/images/ERdiagram.png)
 
 
-This is the HomePage of the app where you get to search for recipes.
+The HomePage of the app where you get to search for recipes.
 
 ![HomePage](/client/src/images/HomePage.jpg)
 
-
-This is the LoginPage where the user get to login. After logging in, the user can edit, view or delete his profile.
-
-![LoginPage](/client/src/images/LoginPage.jpg)
-
-
-This is the RegisterPage where the user get to register.
+The RegisterPage where the user get to register.
 
 ![RegisterPage](/client/src/images/RegisterPage.jpg)
 
+The LoginPage where the user get to login. After logging in, the user can edit, view or delete his profile.
 
-This is the MyRecipes Page a user can open when he is logged in. The user can create/edit/view/delete the recipes.
+![LoginPage](/client/src/images/LoginPage.jpg)
+
+The MyRecipes Page a user can open when he is logged in. The user can create/edit/view/delete the recipes.
 
 ![MyRecipesPage](/client/src/images/MyRecipesPage.jpg)
 
@@ -42,6 +37,7 @@ Recipe App is developed using MongoDB, Express Server, React JS and Node.JS. For
 - react-bootstrap
 - axios
 - fontawesome
+- react-toastify
 
 ## Libraries used on the Server Side are
 - mongoose
@@ -59,7 +55,11 @@ https://www.themealdb.com/api.php
 Trello board is used for project planning.
 https://trello.com/b/gfTDgO45/mod3-recipe-app
 
+Link to the app : 
+https://recipeapp-client.onrender.com/
+
 # Unsolved Problems
+
 
 # Future Enhancements
 
