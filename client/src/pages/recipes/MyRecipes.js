@@ -1,10 +1,9 @@
+import React from 'react';
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getRecipesFromUser, removeRecipeFromUserFav } from "../../services/recipeService"
 import { Link } from "react-router-dom"
 import ViewRecipe from "./ViewRecipe"
-import React from 'react';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,6 +45,10 @@ function goBack(){
     if (user.favoriterecipes?.length) {
         return (
         <div style={{display:"flex"}}>
+            <abbr className="back" title="Go Back">
+                <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer", marginLeft:"50px",marginTop:"50px"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
+            </abbr> 
+            <div className="App">    
             <ToastContainer
               position="top-right"
               autoClose={2000}
@@ -57,11 +60,7 @@ function goBack(){
               draggable
               pauseOnHover
               theme="light"
-          />
-            <abbr className="back" title="Go Back">
-                <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer", marginLeft:"50px",marginTop:"50px"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
-            </abbr> 
-            <div className="App">        
+          />    
                 {user.favoriterecipes.map((item, index) =>
                     <div key={index} className="favorite recipeCard"> 
                         <abbr title="Remove from My Recipes"><i onClick={() => { handleDelete(item) }} style={{fontSize:"25px", marginLeft:"225px", cursor:"pointer"}} class="fa-solid fa-xmark xmark"></i></abbr>       
@@ -80,7 +79,7 @@ function goBack(){
                         {/* <button onClick={() => { handleDelete(item) }}> Remove </button> */}
                         {/* {item.instructions?<p><strong>Instructions</strong></p>:''} */}
                         <br /><br />
-                        <p>{item.instructions.substring(0,130)}.....<Link to={`/myrecipes/${item._id}`}>Click to read</Link></p>
+                        {item.instructions?<p>{item.instructions.substring(0,130)}.....<Link to={`/myrecipes/${item._id}`}>Click to read</Link></p>:''}
                        
                         {/* <h2>{item.recipe.label}</h2>
         <img src={item.recipe.image} alt="" /> */}

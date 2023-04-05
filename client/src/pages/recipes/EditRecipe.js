@@ -1,6 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getARecipe,updateARecipe } from '../../services/recipeService'
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function EditRecipe({user,setUser}){
 
         const [recipe,setRecipe] = useState({})
@@ -25,10 +29,12 @@ function EditRecipe({user,setUser}){
                 measures: mesRef.current.value,
                 instructions: insRef.current.value
             }
-           
+            
             await updateARecipe(params.rid, updatedRecipe)
-            alert("Changes are saved.")
+            
             navigate(`/myrecipes`)
+            alert(`Changes are saved.`)
+            
         }
         function goBack(){
             navigate(-1)
@@ -36,11 +42,22 @@ function EditRecipe({user,setUser}){
     
         return ( 
             <div>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={true}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />    
                 <div className='details' style={{ flexDirection: 'column' }}>
                 <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
                 </abbr>
-    
                 <form onSubmit={handleSubmit}>
                 <h1 style={{display:"flex",justifyContent:"center"}}>Edit Recipe </h1>
                     <div className='recipeDetails'><img src={recipe.imagepath} alt="" /></div>
@@ -62,8 +79,6 @@ function EditRecipe({user,setUser}){
                         <button style={{marginLeft:"100px"}}><i class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>Back</button>
                     </Link>
                 </form>
-                    
-                    
                 </div>
             </div>
         );

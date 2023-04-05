@@ -1,6 +1,13 @@
+import React from 'react';
+
 import { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { createNewRecipeInFav } from '../../services/recipeService'
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function NewRecipe({user,setUser}){
     let favoriteArray = []
@@ -119,14 +126,24 @@ function NewRecipe({user,setUser}){
     
         return ( 
             <div>
-                
                 <div className='buttons details' style={{ flexDirection: 'column' }}>
                 <h1 style={{display:"flex", justifyContent:"center"}}>New Recipe </h1>
                 <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
                 </abbr>
-                    <form onSubmit={handleSubmit}>
-    
+                    <form onSubmit={handleSubmit}>    
+                    <ToastContainer
+                      position="top-right"
+                      autoClose={2000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick={true}
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                      theme="light"
+                    />    
                         {/* <img style={{width:"300px",height:"300px"}} src={recipe.imagepath} alt="" /> */}
                         <label htmlFor="imagePath">Image Path :</label><br />
                         <textarea ref={imgRef} id="imagePath" /><br /><br />

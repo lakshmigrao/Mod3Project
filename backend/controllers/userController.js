@@ -1,4 +1,5 @@
 const User = require('../models/UserModel')
+const Recipe = require('../models/RecipeModel')
 
 async function show(req, res) {
     try {
@@ -35,7 +36,11 @@ async function updateProfile(req,res){
 async function deleteProfile(req,res){
 
     try {
-        await User.findByIdAndDelete(req.id)
+        const user = await User.findByIdAndDelete(req.id)
+        await Recipe.deleteMany({ _id: { 
+            // equals/matches any comment ids in this array
+            $in: user.favoriterecipes 
+        }})
         res.json({message : 'user deleted successfully'})
 
     } catch (error) {
