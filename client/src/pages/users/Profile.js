@@ -4,18 +4,21 @@ import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Col from "react-bootstrap/Col";
 import Row from 'react-bootstrap/Row';
+import { confirm } from "react-confirm-box";
 
 function Profile({ user,setUser }) {
 
     const navigate = useNavigate()
     async function handleDelete(){
-
-        await deleteUser()
-        localStorage.removeItem("token")
-        localStorage.removeItem(user.username)
-        setUser({})
-        alert("Profile deleted.")
-        navigate('/login')
+        let ans = await confirm("Do you want to delete your profile?")
+        if(ans){
+            await deleteUser()
+            localStorage.removeItem("token")
+            localStorage.removeItem(user.username)
+            setUser({})
+            alert("Profile deleted.")
+            navigate('/login')
+        }
     }
     return ( 
         <div className="profile">

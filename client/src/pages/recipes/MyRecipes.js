@@ -3,6 +3,10 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getRecipesFromUser, removeRecipeFromUserFav } from "../../services/recipeService"
 import { Link } from "react-router-dom"
 import ViewRecipe from "./ViewRecipe"
+import React from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyRecipes({ myRecipes, setMyRecipes, user, setUser }) {//
     let updatedUser = {}
@@ -35,12 +39,25 @@ function goBack(){
         favoriteArray.splice(index,1)
         localStorage.setItem(user.username,JSON.stringify(favoriteArray))
        //navigate(`/myrecipes/${name}`)
-       alert(`${recipe.recipeName} is removed from My Recipes.`)
+       toast(`${recipe.recipeName} is removed from My Recipes.`)
     }
 
 
     if (user.favoriterecipes?.length) {
-        return (<div style={{display:"flex"}}>
+        return (
+        <div style={{display:"flex"}}>
+            <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={true}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+          />
             <abbr className="back" title="Go Back">
                 <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer", marginLeft:"50px",marginTop:"50px"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>
             </abbr> 

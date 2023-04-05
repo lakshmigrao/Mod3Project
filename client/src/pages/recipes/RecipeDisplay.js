@@ -8,6 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart  } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
 
@@ -71,7 +74,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
       setUser(updatedUser)
       await addRecipeToFav(newrecipe)
       navigate('/')
-      alert(`${newrecipe.recipeName} is added to My Recipes.`)
+      toast(`${newrecipe.recipeName} is added to My Recipes.`)
   }
  
   async function handleDelete(recipe) {
@@ -87,7 +90,7 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
     favoriteArray.splice(index,1)
     //console.log(favoriteArray+"after deletion")
     localStorage.setItem(user.username,JSON.stringify(favoriteArray))
-    alert(`${recipe.strMeal} is removed from My Recipes.`)
+    toast(`${recipe.strMeal} is removed from My Recipes.`)
    //navigate(`/myrecipes/${name}`)
 }
   if (recipes.meals) {
@@ -104,6 +107,18 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
       
       recipes.meals.map((item, index) =>
         <div key={index} className="recipeCard card">
+          <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={true}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+          />
           {/* {console.log(user," inside RecipeDisplay")} */}
           {userExists ?
           (favoriteArray?.indexOf(item.idMeal) > -1) ?
