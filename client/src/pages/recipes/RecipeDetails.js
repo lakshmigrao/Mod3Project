@@ -21,40 +21,17 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
         }catch(error){
             console.error(error)
         }
-       
-        
     }
+
     useEffect(() => {
         getRecipeDetails()
     }, [])
-    
 
     function goBack(){
         navigate(-1)//-1 to go back to previous page
     }
+    
     const loaded = () => {
-        // let item;
-        //let index;
-        // if(recipeDetails.meals){
-        //     console.log("recipeDetails.meals")
-        //     console.log(recipeDetails.meals)
-        //     console.log(idMeal)
-            
-            // for(let i=0;i<recipeDetails.items.length;i++){            
-            //     if(recipeDetails.items[i].volumeInfo.title
-            //         && recipeDetails.items[i].volumeInfo.industryIdentifiers){                               
-            //     if(isbn===recipeDetails.items[i].volumeInfo.industryIdentifiers[0].identifier.replace(/[?:,.`~<>@#$%^&*/]/g, '')//encodeURIComponent(recipeDetails.items[i].volumeInfo.industryIdentifiers[0].identifier)//
-            //     || title===recipeDetails.items[i].volumeInfo.title.replace(/[?:,.`~<>@#$%^&*/]/g, '')//encodeURIComponent(recipeDetails.items[i].volumeInfo.title)//
-            //     ){
-            //         index=i;
-            //         break;
-            //     }}
-
-            // }
-        //     //item = recipeDetails.items.filter(recipe =>id === recipe.id)
-        //     item=recipeDetails.items[index]
-        //     console.log("item")
-        // console.log(item)
         for(let i=1;i<20;i++){
             ingredients[i]=recipeDetails.meals[0][`strIngredient${i}`]
             measures[i]=recipeDetails.meals[0][`strMeasure${i}`]
@@ -86,31 +63,15 @@ function RecipeDetails({myRecipes,setMyRecipes,user}){
                 </div>
                 <p className="instructions"><strong>Instructions : <br /><br /></strong>{recipeDetails.meals[0].strInstructions}</p>
                 <br/><br/>
-            </div>)
-      {/*       )}else{
-            return(<>
-                <h1>The recipe details not found in database.</h1>
-                <button onClick={goBack}>Back</button>
-            </>)
-        }
-        }else{
-            return(<>
-                <h1>The recipe details not found in database.</h1>
-                <button onClick={goBack}>Back</button>
-            </>) 
-        } */}
-        
+            </div>)        
     }
         
-
     const loading = () => {
         return(
             <h1>recipe Details Page Loading...</h1>
         )
     }
-   
     return recipeDetails ? loaded() : loading()
-//return
 }
 
 export default RecipeDetails

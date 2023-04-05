@@ -15,15 +15,10 @@ let emptyForm = {
 function Login({ setUser }) {
 
     const navigate = useNavigate();
-
     const userRef = useRef()
     const passRef = useRef()
 
     let [form, setForm] = useState(emptyForm)
-
-    // const handleChange = (e) => {
-    //     setForm({ ...form, [e.target.name]: e.target.value })
-    // }
 
     const handleSubmit = async (e) => {
 
@@ -34,12 +29,10 @@ function Login({ setUser }) {
         }
         setForm(newform)
         const token = await userLogin(newform)
-
         if (!token) {
             setForm(emptyForm)
             return
         }
-
         localStorage.setItem("token", token)
 
         const user = await userInfo()
@@ -78,38 +71,14 @@ function Login({ setUser }) {
                     label='Remember Me'
                 />
                 <br />
-                <a href="#" style={{ marginTop: "75px", fontSize: "20px"}} className="login" ><strong>Forgot Password?</strong></a></div>
-            {/* <Button variant="primary" type="submit">
-        Submit
-      </Button> */}
-
+                <a href="#" style={{ marginTop: "75px", fontSize: "20px"}} className="login" ><strong>Forgot Password?</strong></a>
+            </div>
             <button style={{ marginTop: "75px", width: "250px" }} type="submit">Login</button>
             <br /><br /><br /><br />
             <h5 style={{ textAlign:"center", color: "white" }}>Not a member? <a href="/register" className="login"><strong>Register</strong></a></h5>
         </Form>
-
-    </div>)
-    {/*<div className="user-auth">
-            
-             <form style={{ width: "300px" }} onSubmit={handleSubmit} className="register">
-            <h3 style={{ marginLeft: "75px", marginTop: "50px", color:"darkgray"}}>Login</h3>
-                <br /><br />
-                <div className="row">
-                    <div className="col">
-                        <input type="text" className="form-control" placeholder="username" name='username' onChange={handleChange} value={form.username} />
-                    </div>
-                </div>
-                <br /><br />
-                <div className="row">
-                    <div className="col">
-                        <input type="password" className="form-control" placeholder="password" name='password' onChange={handleChange} value={form.password} />
-                    </div>
-                </div>
-                <br /><br /><br />
-                <button style={{ marginLeft: "75px",marginBottom:"20px" }}  type="submit">Login</button>
-            </form>
-        </div> */}
-    //)
+    </div>
+    )
 }
 
 export default Login

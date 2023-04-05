@@ -27,42 +27,40 @@ function Profile({ user,setUser }) {
             <Form style={{width:"500px"}}>
                 <Row>
                     <Col>
-            <Form.Group className="mb-3" >
-                <Form.Label> <strong>First Name</strong></Form.Label>
-                <Form.Control type="fname" placeholder={user.fname} disabled/>
-            </Form.Group>
-            </Col>
-            <Col>
-            <Form.Group className="mb-3" >
-                <Form.Label> <strong>Last Name</strong></Form.Label>
-                <Form.Control type="lname" placeholder={user.lname} disabled/>
-            </Form.Group>
-            </Col>
-            </Row>
-            <Form.Group className="mb-3" >
-                <Form.Label> <strong>Country of residence</strong></Form.Label>
-                <Form.Control type="country" placeholder={user.country} disabled/>
-            </Form.Group>
-            <Form.Group className="mb-3" >
-                <Form.Label> <strong>Username</strong> </Form.Label>
-                <Form.Control type="username" placeholder={user.username} disabled/>
-            </Form.Group>
-            <Form.Group className="mb-3" >
-                <Form.Label> <strong>E-mail</strong> </Form.Label>
-                <Form.Control type="email" placeholder={user.email} disabled/>
-            </Form.Group>
-     
-            </Form>
-              
+                        <Form.Group className="mb-3" >
+                            <Form.Label> <strong>First Name</strong></Form.Label>
+                            <Form.Control type="fname" placeholder={user.fname} disabled/>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group className="mb-3" >
+                            <Form.Label> <strong>Last Name</strong></Form.Label>
+                            <Form.Control type="lname" placeholder={user.lname} disabled/>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Form.Group className="mb-3" >
+                    <Form.Label> <strong>Country of residence</strong></Form.Label>
+                    <Form.Control type="country" placeholder={user.country} disabled/>
+                </Form.Group>
+                <Form.Group className="mb-3" >
+                    <Form.Label> <strong>Username</strong> </Form.Label>
+                    <Form.Control type="username" placeholder={user.username} disabled/>
+                </Form.Group>
+                <Form.Group className="mb-3" >
+                    <Form.Label> <strong>E-mail</strong> </Form.Label>
+                    <Form.Control type="email" placeholder={user.email} disabled/>
+                </Form.Group>
+            </Form>    
             <br /><br />
             <div style={{display:"flex", justifyContent:"center"}}>
-            <Link to={`/profile/edit`}>
-            <button ><i style={{fontSize:"25px"}}class="fa-solid fa-pen-to-square"></i>Edit Profile</button> </Link>
-            <button onClick={handleDelete} style={{marginLeft : "100px",fontSize:"15px"}}><i class="fa-solid fa-trash"></i>Delete Profile</button>
+                <Link to={`/profile/edit`}>
+                    <button ><i style={{fontSize:"25px"}}class="fa-solid fa-pen-to-square"></i>Edit Profile</button> 
+                </Link>
+                <button onClick={handleDelete} style={{marginLeft : "100px",fontSize:"15px"}}><i class="fa-solid fa-trash"></i>Delete Profile</button>
            </div>
         </div>
-        
-     );
+    );
 }
 
 export default Profile;

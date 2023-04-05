@@ -42,7 +42,7 @@ function EditRecipe({user,setUser}){
     
         return ( 
             <div>
-                <ToastContainer
+                {/* <ToastContainer
                     position="top-right"
                     autoClose={2000}
                     hideProgressBar={false}
@@ -53,7 +53,7 @@ function EditRecipe({user,setUser}){
                     draggable
                     pauseOnHover
                     theme="light"
-                />    
+                />     */}
                 <div className='details' style={{ flexDirection: 'column' }}>
                 <abbr className="delete" title="Go Back">
                     <i onClick={goBack} style={{fontSize:"40px", cursor:"pointer"}} class="fa-solid fa-circle-arrow-left" alt="Go Back"></i>

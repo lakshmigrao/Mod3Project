@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import { addRecipeToFav } from "../../services/recipeService";
 import { removeRecipeFromUserFavUsingId } from "../../services/recipeService";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart  } from '@fortawesome/free-solid-svg-icons'
-import { useState } from "react";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faHeart  } from '@fortawesome/free-solid-svg-icons'
+// import { useState } from "react";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
 
@@ -36,8 +35,6 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
         })
         localStorage.setItem(user.username,JSON.stringify(favoriteArray))
       }
-    
-    
     }
 
     async function addToMyRecipes(item) {
@@ -75,39 +72,34 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
       await addRecipeToFav(newrecipe)
       navigate('/')
       toast(`${newrecipe.recipeName} is added to My Recipes.`)
-  }
+    }
  
   async function handleDelete(recipe) {
    
     await removeRecipeFromUserFavUsingId(recipe.idMeal)
     let updatedUser = {...user}
     updatedUser.favoriterecipes= updatedUser.favoriterecipes.filter(c => c._id !== recipe._id)
-   //console.log(updatedUser.favoriterecipes)
     setUser(updatedUser)
     
     favoriteArray=JSON.parse(localStorage.getItem(user.username))
     let index = favoriteArray.indexOf(recipe.recipeId)
     favoriteArray.splice(index,1)
-    //console.log(favoriteArray+"after deletion")
     localStorage.setItem(user.username,JSON.stringify(favoriteArray))
     toast(`${recipe.strMeal} is removed from My Recipes.`)
-   //navigate(`/myrecipes/${name}`)
-}
+  }
   if (recipes.meals) {
    
     if(user && user.favoriterecipes){
-      favoriteArray = JSON.parse(localStorage.getItem(user.username))
+        favoriteArray = JSON.parse(localStorage.getItem(user.username))
     }
     let userExists=false;
     if (user?.id || user?._id){
-
        userExists = true
     }
     return (
-      
       recipes.meals.map((item, index) =>
         <div key={index} className="recipeCard card">
-          <ToastContainer
+          {/* <ToastContainer
               position="top-right"
               autoClose={2000}
               hideProgressBar={false}
@@ -118,48 +110,23 @@ function RecipeDisplay({ recipes, myRecipes,setMyRecipes, user, setUser }) {
               draggable
               pauseOnHover
               theme="light"
-          />
-          {/* {console.log(user," inside RecipeDisplay")} */}
+          /> */}
           {userExists ?
-          (favoriteArray?.indexOf(item.idMeal) > -1) ?
-           
-            <i onClick={() => { handleDelete(item) }} style={{ marginLeft:"240px"}} className="fa-solid fa-heart"></i>
-          :
-          <>
-            <i onClick={() => { addToMyRecipes(item) }} style={{ marginLeft:"240px"}} className="fa-regular fa-heart"></i>
-            {/* <button onClick={() => { addToMyRecipes(item) }}>Add to My Recipes</button>  */}
-          </>
-            :''}
+
+            (favoriteArray?.indexOf(item.idMeal) > -1) ?
+              <i onClick={() => { handleDelete(item) }} style={{ marginLeft:"240px"}} className="fa-solid fa-heart"></i>
+            :
+              <i onClick={() => { addToMyRecipes(item) }} style={{ marginLeft:"240px"}} className="fa-regular fa-heart"></i>
+          
+          :''}
        
-  {/* //         (myRecipes.map((eachmyrecipe)=>{
-  //           <>
-  //             if (eachmyrecipe === item.idMeal){
-  //               <i style={{ color: "red" }} className="fa-solid fa-heart"></i>
-  //             }else{
-  //               <i className="fa-regular fa-heart"></i>
-  //             }
-  //           </>
-  // })) */}
-        
-        {/* //   (favoriteArray.includes(item.idMeal)) ? 
-        //   <FontAwesomeIcon icon={faHeart} />
-        //   :
-        //   //<FontAwesomeIcon icon="fa-regular fa-heart" />
- 
-        //   <FontAwesomeIcon icon="fa-solid fa-heart" />
-        
-        //  :''}  */}
           <Link to={`/recipes/${item.idMeal}`}>  <h4>{item.strMeal}</h4>
-              {/* {item.idMeal} */}
-            <img src={item.strMealThumb} alt="" /></Link>
-
-
-          {/* <h2>{item.recipe.label}</h2>
-        <img src={item.recipe.image} alt="" /> */}
-
-        </div>)
+            <img src={item.strMealThumb} alt="" />
+          </Link>
+        </div>
+      )
     )
-}
+  }
 }
 
 export default RecipeDisplay;
