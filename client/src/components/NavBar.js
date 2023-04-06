@@ -15,7 +15,7 @@ function NavBar({ user, setUser }) {
         <Container>
           <Navbar.Brand >{user.charAt(0).toUpperCase()+user.slice(1)}'s   </Navbar.Brand>
           <Navbar.Brand className="fontHindi" style={{fontSize:"30px", color:"gold"}}>Recipe World</Navbar.Brand>
-          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav justify variant="pills" className="me-auto container-fluid">
               <Nav.Item>
@@ -34,7 +34,7 @@ function NavBar({ user, setUser }) {
       <Navbar  bg="dark" variant="dark" expand="lg" sticky='top' style={{fontSize : "25px"}} >
         <Container>
           <Navbar.Brand className="fontHindi" style={{fontSize:"30px", color:"gold"}}>Recipe World</Navbar.Brand>
-          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav justify variant="pills" className="me-auto container-fluid">
               <Nav.Item>
