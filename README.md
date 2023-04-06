@@ -60,6 +60,7 @@ https://recipeapp-client.onrender.com/
 
 # Unsolved Problems
 
+- Make the recipe-app mobile screen responsive.
 
 # Future Enhancements
 
