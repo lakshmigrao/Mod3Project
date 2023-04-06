@@ -53,7 +53,7 @@ function Register({ setUser }) {
 
         const user = await userInfo()
         setUser(user)
-        alert(`${user.username} created.`)
+        alert(`Welcome ${user.username} to recipe world.`)
 
         navigate('/')
     }

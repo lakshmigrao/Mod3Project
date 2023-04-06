@@ -10,13 +10,13 @@ function Profile({ user,setUser }) {
 
     const navigate = useNavigate()
     async function handleDelete(){
-        let ans = window.confirm("Are you sure you want to delete your profile?")
+        let ans = window.confirm("Are you sure you want to delete your account?")
         if(ans){
             await deleteUser()
             localStorage.removeItem("token")
             localStorage.removeItem(user.username)
             setUser({})
-            alert("Profile deleted.")
+            alert("We will miss you.")
             navigate('/login')
         }
     }
