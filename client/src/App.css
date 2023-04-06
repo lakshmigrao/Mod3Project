@@ -5,6 +5,7 @@ body{
   background-size: 100% ;
   /* background-origin: content-box; */
   max-width: 100%;
+  /* min-height: 100%; */
 
 }
 

@@ -27,6 +27,7 @@ function Register({ setUser }) {
     let [form, setForm] = useState(emptyForm)
 
     const [isChecked, setIsChecked] = useState(false);
+    const [isloggedIn, setisloggedIn] = useState(false);
     
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
@@ -34,6 +35,7 @@ function Register({ setUser }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setisloggedIn(true)
         let newForm = {
             username: unameRef.current.value,
             password: passRef.current.value,
@@ -50,16 +52,17 @@ function Register({ setUser }) {
             return
         }
         localStorage.setItem("token", token)
-
+        setisloggedIn(false)
         const user = await userInfo()
         setUser(user)
         alert(`Welcome ${user.username} to recipe world.`)
 
         navigate('/')
     }
-    let buttonActive = false;
+   
 
-    return (<div className="register">
+    return (
+    <div className="register">
         <div style={{textAlign:"center", marginTop: "25px", color: "white" }}>
             <h3>Sign up with : </h3> <br />
             <a href="#"><i className="fa-brands fa-facebook loginsm"></i></a>
@@ -127,6 +130,11 @@ function Register({ setUser }) {
               } 
             <br /><br /><br /><br />
         </Form>
+        {isloggedIn ? 
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        :''}
 
     </div>)
 }
