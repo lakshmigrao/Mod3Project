@@ -213,7 +213,7 @@ button:active{
 }
 
 .search{
-  margin-top: 100px;
+  /* margin-top: 100px; */
   margin-bottom: 30px;
   margin-left: 60px;
   color : darkgray;
@@ -408,6 +408,32 @@ footer{
   opacity: .4;
   font-weight: 200;
 }
-.activeButton:hover{
-  
+.pagination{
+  position: fixed;
+  bottom:0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+  /* 5rem; */
+  font-size: 1.2rem;
+  gap:5px;
+  /* background-color: white; */
+}
+.pagination .page-num{
+  padding: 8px 15px;
+  cursor:pointer;
+  border-radius: 3px;
+  font-weight: 800;
+  color: black;
+}
+.pagination .page-num:hover{
+  background-color: #5ab18b;
+  color: white;
+}
+.pagination .active{
+  background-color: #5ab18b;
+
+
 }

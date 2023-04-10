@@ -39,7 +39,7 @@ function SearchForm({ recipes,setRecipes, myRecipes, setMyRecipes, user ,setUser
   if (recipes) {
     return (
       <div>
-        <Form style={{marginTop:"50px"}} onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <h1 className="search">Welcome to <spanhindi>recipe world</spanhindi> </h1>
           <div style={{display:"flex"}}>
             <Form.Control size="lg" ref={searchRef} type="text" placeholder="Search for recipes, ingredients" />
